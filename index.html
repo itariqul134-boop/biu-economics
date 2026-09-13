@@ -3,411 +3,1117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>খাঁটি মধু ঘর</title>
+
+<title>Department of Economics | BIU</title>
+
+<meta name="description"
+content="Department of Economics, Brahmaputra International University (BIU)">
 
 <style>
-*{box-sizing:border-box}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
 body{
-  margin:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:#fffaf0;
-  color:#35220d;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#f5f7fa;
+    color:#222;
+    line-height:1.7;
 }
+
+/* HEADER */
 
 header{
-  background:#f6b800;
-  padding:18px;
-  text-align:center;
-  box-shadow:0 2px 8px #0002;
+    background:#075e54;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
 }
 
-header h1{
-  margin:0;
-  font-size:28px;
+.header{
+    max-width:1100px;
+    margin:auto;
+    padding:14px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-header p{
-  margin:6px 0 0;
+.logo{
+    font-size:18px;
+    font-weight:bold;
 }
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd54f;
+}
+
+/* HERO */
 
 .hero{
-  text-align:center;
-  padding:40px 20px;
-  background:linear-gradient(135deg,#fff1b8,#ffd45c);
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:50px 18px;
+
+    background:
+    linear-gradient(135deg,#064e46,#00897b);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 15px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:30px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:44px;
+    line-height:1.2;
+    margin-bottom:15px;
 }
 
 .hero h2{
-  font-size:32px;
-  margin:5px;
+    font-size:24px;
+    font-weight:normal;
+    margin-bottom:15px;
 }
 
 .hero p{
-  font-size:18px;
+    font-size:17px;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#ffd54f;
+    color:#222;
+    padding:12px 23px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:5px;
+}
+
+.btn-outline{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+}
+
+/* GENERAL */
+
+section{
+    padding:60px 18px;
 }
 
 .container{
-  max-width:1050px;
-  margin:auto;
-  padding:25px 15px;
+    max-width:1100px;
+    margin:auto;
 }
 
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h2{
+    color:#075e54;
+    font-size:30px;
+}
+
+.title p{
+    color:#666;
+}
+
+/* ABOUT */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.box{
+    background:#f1f8f6;
+    padding:25px;
+    border-left:5px solid #00897b;
+    border-radius:10px;
+}
+
+.box h3{
+    color:#075e54;
+    margin-bottom:10px;
+}
+
+/* PROGRAMS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
 .card{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 3px 12px #0001;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 14px rgba(0,0,0,.08);
+    transition:.25s;
 }
 
-.honey{
-  font-size:65px;
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:8px;
 }
 
 .card h3{
-  margin:8px 0;
+    color:#075e54;
+    margin-bottom:7px;
 }
 
-.price{
-  font-size:22px;
-  font-weight:bold;
-  color:#b36b00;
-  margin:12px;
+/* COURSES */
+
+.course{
+    background:white;
 }
 
-button{
-  border:0;
-  border-radius:10px;
-  padding:12px 18px;
-  background:#e79b00;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
+.course-table{
+    overflow-x:auto;
 }
 
-button:hover{
-  background:#c98100;
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    min-width:600px;
 }
 
-.cart{
-  margin-top:30px;
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  box-shadow:0 3px 12px #0001;
+th,td{
+    padding:14px;
+    border:1px solid #ddd;
+    text-align:left;
 }
 
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  border-bottom:1px solid #eee;
-  padding:10px 0;
+th{
+    background:#075e54;
+    color:white;
 }
 
-.total{
-  font-size:22px;
-  font-weight:bold;
-  text-align:right;
-  margin-top:15px;
+/* FACULTY */
+
+.teacher{
+    text-align:center;
 }
 
-form{
-  display:grid;
-  gap:12px;
-  margin-top:15px;
+.photo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#d9efeb;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
 }
 
-input,textarea,select{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:9px;
-  font-size:16px;
+.teacher h3{
+    margin-top:12px;
 }
 
-textarea{
-  min-height:90px;
-}
-
-.order-btn{
-  background:#198754;
-}
+/* NOTICE */
 
 .notice{
-  background:#fff3cd;
-  padding:12px;
-  border-radius:10px;
-  margin-top:15px;
+    max-width:850px;
+    margin:0 auto 12px;
+    background:white;
+    padding:18px;
+    border-left:5px solid #00897b;
+    border-radius:9px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
 
-.small{
-  font-size:14px;
-  color:#765;
+.date{
+    color:#c62828;
+    font-size:13px;
+    font-weight:bold;
 }
+
+/* STUDENTS */
+
+.student-section{
+    background:#f1f8f6;
+}
+
+.student-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* CONTACT */
+
+.contact{
+    background:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-item{
+    background:#f5f7fa;
+    padding:16px;
+    margin-bottom:12px;
+    border-radius:8px;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:13px;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:7px;
+    font:inherit;
+}
+
+form textarea{
+    min-height:130px;
+}
+
+form button{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:7px;
+    background:#075e54;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* FOOTER */
 
 footer{
-  text-align:center;
-  background:#3b260f;
-  color:white;
-  padding:25px;
-  margin-top:30px;
+    background:#063f39;
+    color:white;
+    text-align:center;
+    padding:28px 15px;
+}
+
+footer p{
+    font-size:14px;
+    margin:4px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .menu{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        position:absolute;
+        top:58px;
+        left:0;
+        right:0;
+        background:#075e54;
+        padding:8px 18px;
+    }
+
+    nav.active{
+        display:block;
+    }
+
+    nav ul{
+        display:block;
+    }
+
+    nav li{
+        padding:10px 0;
+        border-bottom:1px solid rgba(255,255,255,.15);
+    }
+
+    .hero{
+        min-height:500px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .student-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:48px 15px;
+    }
+
+    .title h2{
+        font-size:26px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <h1>🍯 খাঁটি মধু ঘর</h1>
-  <p>প্রাকৃতিক মধু — আপনার ঘরে পৌঁছে দিচ্ছি</p>
+
+<div class="header">
+
+<div class="logo">
+🎓 BIU Economics
+</div>
+
+<div class="menu" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="nav">
+
+<ul>
+<li><a href="#home">হোম</a></li>
+<li><a href="#about">পরিচিতি</a></li>
+<li><a href="#programs">প্রোগ্রাম</a></li>
+<li><a href="#courses">কোর্স</a></li>
+<li><a href="#faculty">শিক্ষক</a></li>
+<li><a href="#notice">নোটিশ</a></li>
+<li><a href="#students">শিক্ষার্থী</a></li>
+<li><a href="#contact">যোগাযোগ</a></li>
+</ul>
+
+</nav>
+
+</div>
+
 </header>
 
-<section class="hero">
-  <h2>🍯 খাঁটি মধু কিনুন</h2>
-  <p>পছন্দের মধু নির্বাচন করুন এবং সহজেই অর্ডার করুন।</p>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">
+Brahmaputra International University
+</div>
+
+<h1>
+Department of Economics
+</h1>
+
+<h2>
+অর্থনীতি বিভাগ
+</h2>
+
+<p>
+অর্থনৈতিক জ্ঞান, বিশ্লেষণী দক্ষতা ও গবেষণার মাধ্যমে
+আগামী দিনের দক্ষ মানবসম্পদ গড়ে তোলার প্রত্যয়ে।
+</p>
+
+<a href="#about" class="btn">
+বিভাগ সম্পর্কে
+</a>
+
+<a href="#courses" class="btn btn-outline">
+কোর্স দেখুন
+</a>
+
+</div>
+
 </section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
 
 <div class="container">
 
-<h2>🍯 আমাদের মধু</h2>
+<div class="title">
 
-<div class="products">
+<h2>
+অর্থনীতি বিভাগ সম্পর্কে
+</h2>
+
+<p>
+Department of Economics
+</p>
+
+</div>
+
+<div class="about-grid">
+
+<div class="box">
+
+<h3>
+📊 আমাদের বিভাগ
+</h3>
+
+<p>
+অর্থনীতি বিভাগে অর্থনৈতিক তত্ত্ব, নীতি,
+পরিসংখ্যান, গবেষণা ও বাস্তব অর্থনৈতিক
+সমস্যা বিশ্লেষণের ওপর গুরুত্ব দেওয়া হয়।
+</p>
+
+<br>
+
+<p>
+শিক্ষার্থীদের সমালোচনামূলক চিন্তা,
+তথ্য বিশ্লেষণ এবং সিদ্ধান্ত গ্রহণের
+দক্ষতা উন্নয়নে একাডেমিক কার্যক্রম পরিচালিত হয়।
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>
+🎯 আমাদের লক্ষ্য
+</h3>
+
+<p>
+শিক্ষার্থীদের অর্থনীতি বিষয়ে শক্তিশালী
+একাডেমিক ভিত্তি তৈরি করা এবং উচ্চশিক্ষা,
+গবেষণা ও পেশাগত জীবনের জন্য প্রস্তুত করা।
+</p>
+
+<br>
+
+<h3>
+🌟 আমাদের ভিশন
+</h3>
+
+<p>
+জাতীয় ও আন্তর্জাতিক পর্যায়ে অর্থনীতি বিষয়ে
+দক্ষ, গবেষণামুখী ও দায়িত্বশীল গ্র্যাজুয়েট তৈরি করা।
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROGRAMS -->
+
+<section id="programs">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+Academic Programs
+</h2>
+
+<p>
+একাডেমিক প্রোগ্রাম
+</p>
+
+</div>
+
+<div class="cards">
 
 <div class="card">
-  <div class="honey">🍯</div>
-  <h3>সরিষা ফুলের মধু</h3>
-  <p>৫০০ গ্রাম</p>
-  <div class="price">৳ ৫৫০</div>
-  <button onclick="addToCart('সরিষা ফুলের মধু - ৫০০ গ্রাম',550)">
-    🛒 কার্টে যোগ করুন
-  </button>
+
+<div class="icon">
+🎓
 </div>
+
+<h3>
+BSS in Economics
+</h3>
+
+<p>
+অর্থনীতিতে স্নাতক পর্যায়ের
+শিক্ষা কার্যক্রম।
+</p>
+
+</div>
+
 
 <div class="card">
-  <div class="honey">🍯</div>
-  <h3>লিচু ফুলের মধু</h3>
-  <p>৫০০ গ্রাম</p>
-  <div class="price">৳ ৬৫০</div>
-  <button onclick="addToCart('লিচু ফুলের মধু - ৫০০ গ্রাম',650)">
-    🛒 কার্টে যোগ করুন
-  </button>
+
+<div class="icon">
+📈
 </div>
+
+<h3>
+Economic Analysis
+</h3>
+
+<p>
+অর্থনৈতিক তথ্য ও নীতি
+বিশ্লেষণের দক্ষতা।
+</p>
+
+</div>
+
 
 <div class="card">
-  <div class="honey">🍯</div>
-  <h3>কালোজিরা ফুলের মধু</h3>
-  <p>৫০০ গ্রাম</p>
-  <div class="price">৳ ৭৫০</div>
-  <button onclick="addToCart('কালোজিরা ফুলের মধু - ৫০০ গ্রাম',750)">
-    🛒 কার্টে যোগ করুন
-  </button>
+
+<div class="icon">
+🔬
 </div>
 
-<div class="card">
-  <div class="honey">🍯</div>
-  <h3>সুন্দরবনের মধু</h3>
-  <p>৫০০ গ্রাম</p>
-  <div class="price">৳ ৮৫০</div>
-  <button onclick="addToCart('সুন্দরবনের মধু - ৫০০ গ্রাম',850)">
-    🛒 কার্টে যোগ করুন
-  </button>
+<h3>
+Research
+</h3>
+
+<p>
+অর্থনৈতিক গবেষণা ও
+ডেটা বিশ্লেষণের সুযোগ।
+</p>
+
 </div>
 
 </div>
 
-<div class="cart">
-
-<h2>🛒 আপনার কার্ট</h2>
-
-<div id="cartItems">
-  <p class="small">কার্ট এখন খালি।</p>
 </div>
 
-<div class="total">
-  মোট: ৳ <span id="total">0</span>
+</section>
+
+
+<!-- COURSES -->
+
+<section class="course" id="courses">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+প্রধান কোর্সসমূহ
+</h2>
+
+<p>
+Sample Economics Courses
+</p>
+
+</div>
+
+<div class="course-table">
+
+<table>
+
+<tr>
+<th>কোর্স</th>
+<th>বিষয়</th>
+<th>ধরন</th>
+</tr>
+
+<tr>
+<td>ECO 101</td>
+<td>Principles of Microeconomics</td>
+<td>Core</td>
+</tr>
+
+<tr>
+<td>ECO 102</td>
+<td>Principles of Macroeconomics</td>
+<td>Core</td>
+</tr>
+
+<tr>
+<td>ECO 201</td>
+<td>Statistics for Economics</td>
+<td>Core</td>
+</tr>
+
+<tr>
+<td>ECO 202</td>
+<td>Mathematical Economics</td>
+<td>Core</td>
+</tr>
+
+<tr>
+<td>ECO 301</td>
+<td>Development Economics</td>
+<td>Major</td>
+</tr>
+
+<tr>
+<td>ECO 302</td>
+<td>International Economics</td>
+<td>Major</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FACULTY -->
+
+<section id="faculty">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+শিক্ষকবৃন্দ
+</h2>
+
+<p>
+Department Faculty
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card teacher">
+
+<div class="photo">
+👨‍🏫
+</div>
+
+<h3>
+Professor Name
+</h3>
+
+<p>
+Professor<br>
+Department of Economics
+</p>
+
+</div>
+
+
+<div class="card teacher">
+
+<div class="photo">
+👩‍🏫
+</div>
+
+<h3>
+Professor Name
+</h3>
+
+<p>
+Associate Professor<br>
+Department of Economics
+</p>
+
+</div>
+
+
+<div class="card teacher">
+
+<div class="photo">
+👨‍🏫
+</div>
+
+<h3>
+Professor Name
+</h3>
+
+<p>
+Assistant Professor<br>
+Department of Economics
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTICE -->
+
+<section id="notice">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+নোটিশ বোর্ড
+</h2>
+
+<p>
+Economics Department Notice
+</p>
+
 </div>
 
 <div class="notice">
-  💵 বর্তমানে Cash on Delivery অর্ডার নেওয়া হচ্ছে।
+
+<div class="date">
+সেপ্টেম্বর ২০২৬
 </div>
 
-<h2>📦 অর্ডার করুন</h2>
+<h3>
+📢 একাডেমিক নোটিশ
+</h3>
 
-<form onsubmit="placeOrder(event)">
+<p>
+বিভাগীয় গুরুত্বপূর্ণ নোটিশ এখানে প্রকাশ করা হবে।
+</p>
 
-<input id="name" required placeholder="আপনার নাম">
+</div>
 
-<input id="phone" required type="tel" placeholder="মোবাইল নম্বর">
 
-<textarea id="address" required placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা"></textarea>
+<div class="notice">
 
-<select id="payment">
-<option>Cash on Delivery</option>
-<option>bKash</option>
-<option>Nagad</option>
-</select>
+<div class="date">
+সেপ্টেম্বর ২০২৬
+</div>
 
-<button class="order-btn" type="submit">
-✅ অর্ডার কনফার্ম করুন
+<h3>
+📢 পরীক্ষা সংক্রান্ত তথ্য
+</h3>
+
+<p>
+পরীক্ষার সময়সূচি ও নির্দেশনা এখানে যুক্ত করা যাবে।
+</p>
+
+</div>
+
+
+<div class="notice">
+
+<div class="date">
+সেপ্টেম্বর ২০২৬
+</div>
+
+<h3>
+📢 সেমিনার ও ইভেন্ট
+</h3>
+
+<p>
+বিভাগের সেমিনার, ওয়ার্কশপ ও অন্যান্য অনুষ্ঠানের
+তথ্য এখানে প্রকাশ করা যাবে।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STUDENTS -->
+
+<section class="student-section" id="students">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+শিক্ষার্থীদের জন্য
+</h2>
+
+<p>
+Student Resources
+</p>
+
+</div>
+
+<div class="student-grid">
+
+<div class="card">
+
+<div class="icon">
+📚
+</div>
+
+<h3>
+Course Materials
+</h3>
+
+<p>
+কোর্সের নোট, বই ও
+শিক্ষা উপকরণ।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📅
+</div>
+
+<h3>
+Class Routine
+</h3>
+
+<p>
+ক্লাস রুটিন ও
+একাডেমিক সময়সূচি।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📊
+</div>
+
+<h3>
+Result
+</h3>
+
+<p>
+ভবিষ্যতে অনলাইন
+রেজাল্ট সার্চ সুবিধা যুক্ত করা যাবে।
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+যোগাযোগ
+</h2>
+
+<p>
+Department of Economics
+</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div>
+
+<div class="contact-item">
+
+📍 <strong>ঠিকানা</strong>
+
+<br>
+
+Brahmaputra International University,
+Bangladesh
+
+</div>
+
+
+<div class="contact-item">
+
+📞 <strong>ফোন</strong>
+
+<br>
+
+অফিসিয়াল ফোন নম্বর এখানে যুক্ত করুন
+
+</div>
+
+
+<div class="contact-item">
+
+✉️ <strong>ইমেইল</strong>
+
+<br>
+
+অফিসিয়াল ইমেইল এখানে যুক্ত করুন
+
+</div>
+
+
+<div class="contact-item">
+
+🏛️ <strong>Department</strong>
+
+<br>
+
+Department of Economics
+
+</div>
+
+</div>
+
+
+<form onsubmit="sendMessage(event)">
+
+<input
+type="text"
+placeholder="আপনার নাম"
+required
+>
+
+<input
+type="email"
+placeholder="আপনার ইমেইল"
+required
+>
+
+<input
+type="text"
+placeholder="বিষয়"
+required
+>
+
+<textarea
+placeholder="আপনার বার্তা লিখুন..."
+required
+></textarea>
+
+<button type="submit">
+বার্তা পাঠান
 </button>
 
 </form>
 
-<p id="message"></p>
-
 </div>
 
 </div>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
-<h3>🍯 খাঁটি মধু ঘর</h3>
+<p>
+🎓 Department of Economics
+</p>
 
-<p>বিশুদ্ধতা ও ভালো সেবাই আমাদের লক্ষ্য।</p>
+<p>
+Brahmaputra International University (BIU)
+</p>
 
-<p>© 2026 খাঁটি মধু ঘর</p>
+<p>
+© 2026 All Rights Reserved.
+</p>
 
 </footer>
 
+
 <script>
 
-let cart=[];
+function toggleMenu(){
 
-function addToCart(name,price){
-
-  cart.push({
-    name:name,
-    price:price
-  });
-
-  renderCart();
-
-  alert(name+" কার্টে যোগ হয়েছে!");
+document
+.getElementById("nav")
+.classList
+.toggle("active");
 
 }
 
-function removeItem(index){
 
-  cart.splice(index,1);
+document
+.querySelectorAll("nav a")
+.forEach(function(link){
 
-  renderCart();
+link.addEventListener("click",function(){
 
-}
+document
+.getElementById("nav")
+.classList
+.remove("active");
 
-function renderCart(){
+});
 
-  const box=document.getElementById("cartItems");
+});
 
-  const total=document.getElementById("total");
 
-  if(cart.length===0){
+function sendMessage(event){
 
-    box.innerHTML='<p class="small">কার্ট এখন খালি।</p>';
+event.preventDefault();
 
-    total.textContent="0";
-
-    return;
-  }
-
-  let sum=0;
-
-  box.innerHTML=cart.map((item,index)=>{
-
-    sum+=item.price;
-
-    return `
-    <div class="cart-item">
-
-      <span>${item.name}</span>
-
-      <span>
-        ৳ ${item.price}
-
-        <button
-        onclick="removeItem(${index})"
-        style="padding:6px 9px;background:#dc3545">
-        X
-        </button>
-
-      </span>
-
-    </div>
-    `;
-
-  }).join("");
-
-  total.textContent=sum;
-
-}
-
-function placeOrder(event){
-
-  event.preventDefault();
-
-  if(cart.length===0){
-
-    alert("আগে অন্তত একটি মধু কার্টে যোগ করুন।");
-
-    return;
-  }
-
-  const name=document.getElementById("name").value;
-
-  const phone=document.getElementById("phone").value;
-
-  const address=document.getElementById("address").value;
-
-  const payment=document.getElementById("payment").value;
-
-  const total=cart.reduce(
-    (sum,item)=>sum+item.price,
-    0
-  );
-
-  const items=cart.map(
-    item=>item.name
-  ).join(", ");
-
-  document.getElementById("message").innerHTML=`
-
-  <div class="notice">
-
-  ✅ <b>অর্ডার গ্রহণ করা হয়েছে!</b>
-
-  <br><br>
-
-  ক্রেতা: ${name}
-
-  <br>
-
-  মোবাইল: ${phone}
-
-  <br>
-
-  পণ্য: ${items}
-
-  <br>
-
-  মোট মূল্য: <b>৳ ${total}</b>
-
-  <br>
-
-  পেমেন্ট: ${payment}
-
-  <br>
-
-  ঠিকানা: ${address}
-
-  </div>
-
-  `;
+alert(
+"ধন্যবাদ! আপনার বার্তা গ্রহণ করা হয়েছে।"
+);
 
 }
 
