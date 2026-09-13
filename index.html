@@ -1,1123 +1,1238 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Department of Economics | BIU</title>
-
-<meta name="description"
-content="Department of Economics, Brahmaputra International University (BIU)">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:#f5f7fa;
-    color:#222;
-    line-height:1.7;
-}
-
-/* HEADER */
-
-header{
-    background:#075e54;
-    color:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,.2);
-}
-
-.header{
-    max-width:1100px;
-    margin:auto;
-    padding:14px 18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.menu{
-    display:none;
-    font-size:28px;
-    cursor:pointer;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:18px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#ffd54f;
-}
-
-/* HERO */
-
-.hero{
-    min-height:520px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    padding:50px 18px;
-
-    background:
-    linear-gradient(135deg,#064e46,#00897b);
-}
-
-.hero-content{
-    max-width:850px;
-}
-
-.badge{
-    display:inline-block;
-    padding:7px 15px;
-    border:1px solid rgba(255,255,255,.5);
-    border-radius:30px;
-    margin-bottom:18px;
-}
-
-.hero h1{
-    font-size:44px;
-    line-height:1.2;
-    margin-bottom:15px;
-}
-
-.hero h2{
-    font-size:24px;
-    font-weight:normal;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:17px;
-    margin-bottom:25px;
-}
-
-.btn{
-    display:inline-block;
-    background:#ffd54f;
-    color:#222;
-    padding:12px 23px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
-    margin:5px;
-}
-
-.btn-outline{
-    background:transparent;
-    color:white;
-    border:2px solid white;
-}
-
-/* GENERAL */
-
-section{
-    padding:60px 18px;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.title h2{
-    color:#075e54;
-    font-size:30px;
-}
-
-.title p{
-    color:#666;
-}
-
-/* ABOUT */
-
-.about{
-    background:white;
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.box{
-    background:#f1f8f6;
-    padding:25px;
-    border-left:5px solid #00897b;
-    border-radius:10px;
-}
-
-.box h3{
-    color:#075e54;
-    margin-bottom:10px;
-}
-
-/* PROGRAMS */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 3px 14px rgba(0,0,0,.08);
-    transition:.25s;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-}
-
-.icon{
-    font-size:38px;
-    margin-bottom:8px;
-}
-
-.card h3{
-    color:#075e54;
-    margin-bottom:7px;
-}
-
-/* COURSES */
-
-.course{
-    background:white;
-}
-
-.course-table{
-    overflow-x:auto;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    min-width:600px;
-}
-
-th,td{
-    padding:14px;
-    border:1px solid #ddd;
-    text-align:left;
-}
-
-th{
-    background:#075e54;
-    color:white;
-}
-
-/* FACULTY */
-
-.teacher{
-    text-align:center;
-}
-
-.photo{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:#d9efeb;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
-}
-
-.teacher h3{
-    margin-top:12px;
-}
-
-/* NOTICE */
-
-.notice{
-    max-width:850px;
-    margin:0 auto 12px;
-    background:white;
-    padding:18px;
-    border-left:5px solid #00897b;
-    border-radius:9px;
-    box-shadow:0 2px 8px rgba(0,0,0,.06);
-}
-
-.date{
-    color:#c62828;
-    font-size:13px;
-    font-weight:bold;
-}
-
-/* STUDENTS */
-
-.student-section{
-    background:#f1f8f6;
-}
-
-.student-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-/* CONTACT */
-
-.contact{
-    background:white;
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.contact-item{
-    background:#f5f7fa;
-    padding:16px;
-    margin-bottom:12px;
-    border-radius:8px;
-}
-
-form input,
-form textarea{
-    width:100%;
-    padding:13px;
-    margin-bottom:12px;
-    border:1px solid #ddd;
-    border-radius:7px;
-    font:inherit;
-}
-
-form textarea{
-    min-height:130px;
-}
-
-form button{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:7px;
-    background:#075e54;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-    background:#063f39;
-    color:white;
-    text-align:center;
-    padding:28px 15px;
-}
-
-footer p{
-    font-size:14px;
-    margin:4px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .menu{
-        display:block;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Department of Economics | BIU</title>
+
+  <meta name="description"
+        content="Department of Economics, Brahmaputra International University">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    nav{
-        display:none;
-        position:absolute;
-        top:58px;
-        left:0;
-        right:0;
-        background:#075e54;
-        padding:8px 18px;
+    body {
+      font-family: Arial, "Noto Sans", sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
     }
 
-    nav.active{
-        display:block;
+    /* TOP BAR */
+    .topbar {
+      background: #063b2b;
+      color: white;
+      padding: 8px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 14px;
     }
 
-    nav ul{
-        display:block;
+    /* HEADER */
+    header {
+      background: white;
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    nav li{
-        padding:10px 0;
-        border-bottom:1px solid rgba(255,255,255,.15);
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .hero{
-        min-height:500px;
+    .logo {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #087f5b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
     }
 
-    .hero h1{
-        font-size:31px;
+    .logo-text h1 {
+      font-size: 20px;
+      color: #063b2b;
     }
 
-    .hero h2{
-        font-size:20px;
+    .logo-text p {
+      font-size: 13px;
+      color: #666;
     }
 
-    .hero p{
-        font-size:15px;
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    .about-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      font-size: 14px;
     }
 
-    .cards,
-    .student-grid{
-        grid-template-columns:1fr;
+    nav a:hover {
+      color: #087f5b;
     }
 
-    section{
-        padding:48px 15px;
+    /* HERO */
+    .hero {
+      min-height: 460px;
+
+      background:
+        linear-gradient(
+          rgba(3,50,38,.86),
+          rgba(3,50,38,.86)
+        ),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 50px 20px;
     }
 
-    .title h2{
-        font-size:26px;
+    .hero-content {
+      max-width: 850px;
     }
-}
-</style>
+
+    .hero h2 {
+      font-size: 44px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f5c542;
+      color: #222;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 8px 4px;
+    }
+
+    .btn-green {
+      background: #087f5b;
+      color: white;
+    }
+
+    /* SECTION */
+    section {
+      padding: 60px 6%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      color: #063b2b;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-grid h3 {
+      color: #063b2b;
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .about-box {
+      background: #f5f7fb;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .about-box h3 {
+      color: #087f5b;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      margin: 8px 0;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.07);
+
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #087f5b;
+      margin-bottom: 8px;
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* PROGRAM */
+    .program-list {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+      gap: 20px;
+    }
+
+    .program {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+
+      border-top: 5px solid #087f5b;
+
+      box-shadow:
+        0 4px 15px rgba(0,0,0,.06);
+    }
+
+    .program h3 {
+      color: #063b2b;
+      margin-bottom: 10px;
+    }
+
+    /* FACULTY */
+    .faculty-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .faculty-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .faculty-info {
+      padding: 20px;
+    }
+
+    .faculty-info h3 {
+      margin-bottom: 6px;
+      color: #087f5b;
+    }
+
+    .faculty-info p {
+      color: #666;
+      margin: 3px 0;
+    }
+
+    /* NOTICE */
+    .notice {
+      background: white;
+
+      border-left:
+        5px solid #087f5b;
+
+      padding: 18px;
+
+      margin-bottom: 12px;
+
+      border-radius: 7px;
+
+      box-shadow:
+        0 2px 10px rgba(0,0,0,.05);
+    }
+
+    .notice strong {
+      color: #087f5b;
+    }
+
+    /* TABLE */
+    .table-wrapper {
+      overflow-x: auto;
+
+      background: white;
+
+      border-radius: 10px;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th,
+    td {
+      padding: 13px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #063b2b;
+      color: white;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #063b2b;
+      color: white;
+    }
+
+    .contact .section-title h2,
+    .contact .section-title p {
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 30px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,.08);
+
+      padding: 25px;
+
+      border-radius: 12px;
+    }
+
+    .contact-box h3 {
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      margin: 8px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #02271d;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer p {
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+
+      .topbar {
+        justify-content: center;
+        text-align: center;
+        gap: 5px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero {
+        min-height: 400px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 45px 5%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+  <!-- TOP BAR -->
 
-<header>
+  <div class="topbar">
 
-<div class="header">
+    <span>
+      📚 Department of Economics
+    </span>
 
-<div class="logo">
-🎓 BIU Economics
-</div>
+    <span>
+      🎓 Brahmaputra International University
+    </span>
 
-<div class="menu" onclick="toggleMenu()">
-☰
-</div>
+  </div>
 
-<nav id="nav">
 
-<ul>
-<li><a href="#home">হোম</a></li>
-<li><a href="#about">পরিচিতি</a></li>
-<li><a href="#programs">প্রোগ্রাম</a></li>
-<li><a href="#courses">কোর্স</a></li>
-<li><a href="#faculty">শিক্ষক</a></li>
-<li><a href="#notice">নোটিশ</a></li>
-<li><a href="#students">শিক্ষার্থী</a></li>
-<li><a href="#contact">যোগাযোগ</a></li>
-</ul>
+  <!-- HEADER -->
 
-</nav>
+  <header>
 
-</div>
+    <div class="logo-area">
 
-</header>
+      <div class="logo">
+        BIU
+      </div>
 
+      <div class="logo-text">
 
-<!-- HOME -->
+        <h1>
+          BIU Economics
+        </h1>
 
-<section class="hero" id="home">
+        <p>
+          Department of Economics
+        </p>
 
-<div class="hero-content">
+      </div>
 
-<div class="badge">
-Brahmaputra International University
-</div>
+    </div>
 
-<h1>
-Department of Economics
-</h1>
 
-<h2>
-অর্থনীতি বিভাগ
-</h2>
+    <nav>
 
-<p>
-অর্থনৈতিক জ্ঞান, বিশ্লেষণী দক্ষতা ও গবেষণার মাধ্যমে
-আগামী দিনের দক্ষ মানবসম্পদ গড়ে তোলার প্রত্যয়ে।
-</p>
+      <a href="#home">
+        Home
+      </a>
 
-<a href="#about" class="btn">
-বিভাগ সম্পর্কে
-</a>
+      <a href="#about">
+        About
+      </a>
 
-<a href="#courses" class="btn btn-outline">
-কোর্স দেখুন
-</a>
+      <a href="#programs">
+        Programs
+      </a>
 
-</div>
+      <a href="#faculty">
+        Faculty
+      </a>
 
-</section>
+      <a href="#notice">
+        Notice
+      </a>
 
+      <a href="#courses">
+        Courses
+      </a>
 
-<!-- ABOUT -->
+      <a href="#contact">
+        Contact
+      </a>
 
-<section class="about" id="about">
+    </nav>
 
-<div class="container">
+  </header>
 
-<div class="title">
 
-<h2>
-অর্থনীতি বিভাগ সম্পর্কে
-</h2>
+  <!-- HERO -->
 
-<p>
-Department of Economics
-</p>
+  <section class="hero" id="home">
 
-</div>
+    <div class="hero-content">
 
-<div class="about-grid">
+      <h2>
+        Department of Economics
+      </h2>
 
-<div class="box">
+      <p>
+        Brahmaputra International University
+      </p>
 
-<h3>
-📊 আমাদের বিভাগ
-</h3>
+      <p>
+        Excellence in Economics Education,
+        Research and Knowledge.
+      </p>
 
-<p>
-অর্থনীতি বিভাগে অর্থনৈতিক তত্ত্ব, নীতি,
-পরিসংখ্যান, গবেষণা ও বাস্তব অর্থনৈতিক
-সমস্যা বিশ্লেষণের ওপর গুরুত্ব দেওয়া হয়।
-</p>
+      <a
+        href="#about"
+        class="btn"
+      >
+        About Department
+      </a>
 
-<br>
+      <a
+        href="#programs"
+        class="btn btn-green"
+      >
+        Academic Programs
+      </a>
 
-<p>
-শিক্ষার্থীদের সমালোচনামূলক চিন্তা,
-তথ্য বিশ্লেষণ এবং সিদ্ধান্ত গ্রহণের
-দক্ষতা উন্নয়নে একাডেমিক কার্যক্রম পরিচালিত হয়।
-</p>
+    </div>
 
-</div>
+  </section>
 
 
-<div class="box">
+  <!-- ABOUT -->
 
-<h3>
-🎯 আমাদের লক্ষ্য
-</h3>
+  <section
+    class="about"
+    id="about"
+  >
 
-<p>
-শিক্ষার্থীদের অর্থনীতি বিষয়ে শক্তিশালী
-একাডেমিক ভিত্তি তৈরি করা এবং উচ্চশিক্ষা,
-গবেষণা ও পেশাগত জীবনের জন্য প্রস্তুত করা।
-</p>
+    <div class="section-title">
 
-<br>
+      <h2>
+        About the Department
+      </h2>
 
-<h3>
-🌟 আমাদের ভিশন
-</h3>
+      <p>
+        Department of Economics
+      </p>
 
-<p>
-জাতীয় ও আন্তর্জাতিক পর্যায়ে অর্থনীতি বিষয়ে
-দক্ষ, গবেষণামুখী ও দায়িত্বশীল গ্র্যাজুয়েট তৈরি করা।
-</p>
+    </div>
 
-</div>
 
-</div>
+    <div class="about-grid">
 
-</div>
+      <div>
 
-</section>
+        <h3>
+          Department of Economics
+        </h3>
 
+        <p>
+          The Department of Economics at
+          Brahmaputra International University
+          aims to provide students with quality
+          education in economics, statistics,
+          research and economic analysis.
+        </p>
 
-<!-- PROGRAMS -->
+        <br>
 
-<section id="programs">
+        <p>
+          The department prepares students for
+          higher education, research, banking,
+          government and private organizations,
+          development institutions and other
+          professional careers.
+        </p>
 
-<div class="container">
+      </div>
 
-<div class="title">
 
-<h2>
-Academic Programs
-</h2>
+      <div class="about-box">
 
-<p>
-একাডেমিক প্রোগ্রাম
-</p>
+        <h3>
+          Our Objectives
+        </h3>
 
-</div>
+        <p>
+          ✔ Quality Economics Education
+        </p>
 
-<div class="cards">
+        <p>
+          ✔ Research-Oriented Learning
+        </p>
 
-<div class="card">
+        <p>
+          ✔ Statistical and Data Analysis Skills
+        </p>
 
-<div class="icon">
-🎓
-</div>
+        <p>
+          ✔ Economic Problem Solving
+        </p>
 
-<h3>
-BSS in Economics
-</h3>
+        <p>
+          ✔ Career Development
+        </p>
 
-<p>
-অর্থনীতিতে স্নাতক পর্যায়ের
-শিক্ষা কার্যক্রম।
-</p>
+      </div>
 
-</div>
+    </div>
 
+  </section>
 
-<div class="card">
 
-<div class="icon">
-📈
-</div>
+  <!-- PROGRAMS -->
 
-<h3>
-Economic Analysis
-</h3>
+  <section id="programs">
 
-<p>
-অর্থনৈতিক তথ্য ও নীতি
-বিশ্লেষণের দক্ষতা।
-</p>
+    <div class="section-title">
 
-</div>
+      <h2>
+        Academic Programs
+      </h2>
 
+      <p>
+        Our Academic Programs
+      </p>
 
-<div class="card">
+    </div>
 
-<div class="icon">
-🔬
-</div>
 
-<h3>
-Research
-</h3>
+    <div class="program-list">
 
-<p>
-অর্থনৈতিক গবেষণা ও
-ডেটা বিশ্লেষণের সুযোগ।
-</p>
 
-</div>
+      <div class="program">
 
-</div>
+        <h3>
+          BSS in Economics
+        </h3>
 
-</div>
+        <p>
+          Undergraduate education in Economics
+          with courses covering Microeconomics,
+          Macroeconomics, Statistics,
+          Mathematical Economics and other
+          important areas.
+        </p>
 
-</section>
+      </div>
 
 
-<!-- COURSES -->
+      <div class="program">
 
-<section class="course" id="courses">
+        <h3>
+          Economics Research
+        </h3>
 
-<div class="container">
+        <p>
+          Students are encouraged to conduct
+          research, analyze economic data and
+          study real-world economic problems.
+        </p>
 
-<div class="title">
+      </div>
 
-<h2>
-প্রধান কোর্সসমূহ
-</h2>
 
-<p>
-Sample Economics Courses
-</p>
+      <div class="program">
 
-</div>
+        <h3>
+          Career Development
+        </h3>
 
-<div class="course-table">
+        <p>
+          Students are prepared for careers in
+          banking, government, research,
+          development organizations, NGOs and
+          the corporate sector.
+        </p>
 
-<table>
+      </div>
 
-<tr>
-<th>কোর্স</th>
-<th>বিষয়</th>
-<th>ধরন</th>
-</tr>
 
-<tr>
-<td>ECO 101</td>
-<td>Principles of Microeconomics</td>
-<td>Core</td>
-</tr>
+    </div>
 
-<tr>
-<td>ECO 102</td>
-<td>Principles of Macroeconomics</td>
-<td>Core</td>
-</tr>
+  </section>
 
-<tr>
-<td>ECO 201</td>
-<td>Statistics for Economics</td>
-<td>Core</td>
-</tr>
 
-<tr>
-<td>ECO 202</td>
-<td>Mathematical Economics</td>
-<td>Core</td>
-</tr>
+  <!-- FACULTY -->
 
-<tr>
-<td>ECO 301</td>
-<td>Development Economics</td>
-<td>Major</td>
-</tr>
+  <section
+    id="faculty"
+    class="about"
+  >
 
-<tr>
-<td>ECO 302</td>
-<td>International Economics</td>
-<td>Major</td>
-</tr>
+    <div class="section-title">
 
-</table>
+      <h2>
+        Our Faculty
+      </h2>
 
-</div>
+      <p>
+        Department of Economics
+      </p>
 
-</div>
+    </div>
 
-</section>
 
+    <div class="cards">
 
-<!-- FACULTY -->
 
-<section id="faculty">
+      <!-- MINHAZ SIR -->
 
-<div class="container">
+      <div class="card faculty-card">
 
-<div class="title">
+        <img
+          src="minhaz.jpg"
+          alt="Minhaz Sir"
+        >
 
-<h2>
-শিক্ষকবৃন্দ
-</h2>
+        <div class="faculty-info">
 
-<p>
-Department Faculty
-</p>
+          <h3>
+            Minhaz Sir
+          </h3>
 
-</div>
+          <p>
+            Assistant Professor
+          </p>
 
-<div class="cards">
+          <p>
+            Department of Economics
+          </p>
 
-<div class="card teacher">
+        </div>
 
-<div class="photo">
-👨‍🏫
-</div>
+      </div>
 
-<h3>
-Professor Name
-</h3>
 
-<p>
-Professor<br>
-Department of Economics
-</p>
+      <!-- SADIA -->
 
-</div>
+      <div class="card faculty-card">
 
+        <img
+          src="sadia.jpg"
+          alt="Sadia"
+        >
 
-<div class="card teacher">
+        <div class="faculty-info">
 
-<div class="photo">
-👩‍🏫
-</div>
+          <h3>
+            Sadia
+          </h3>
 
-<h3>
-Professor Name
-</h3>
+          <p>
+            Lecturer
+          </p>
 
-<p>
-Associate Professor<br>
-Department of Economics
-</p>
+          <p>
+            Department of Economics
+          </p>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="card teacher">
 
-<div class="photo">
-👨‍🏫
-</div>
+      <!-- FACULTY MEMBER -->
 
-<h3>
-Professor Name
-</h3>
+      <div class="card">
 
-<p>
-Assistant Professor<br>
-Department of Economics
-</p>
+        <div class="icon">
+          👨‍🏫
+        </div>
 
-</div>
+        <h3>
+          Faculty Member
+        </h3>
 
-</div>
+        <p>
+          Department of Economics
+        </p>
 
-</div>
+      </div>
 
-</section>
 
+    </div>
 
-<!-- NOTICE -->
+  </section>
 
-<section id="notice">
 
-<div class="container">
+  <!-- NOTICE -->
 
-<div class="title">
+  <section id="notice">
 
-<h2>
-নোটিশ বোর্ড
-</h2>
+    <div class="section-title">
 
-<p>
-Economics Department Notice
-</p>
+      <h2>
+        Notice Board
+      </h2>
 
-</div>
+      <p>
+        Important Notices
+      </p>
 
-<div class="notice">
+    </div>
 
-<div class="date">
-সেপ্টেম্বর ২০২৬
-</div>
 
-<h3>
-📢 একাডেমিক নোটিশ
-</h3>
+    <div class="notice">
 
-<p>
-বিভাগীয় গুরুত্বপূর্ণ নোটিশ এখানে প্রকাশ করা হবে।
-</p>
+      <strong>
+        📢 Academic Notice
+      </strong>
 
-</div>
+      <p>
+        All students are requested to attend
+        classes regularly.
+      </p>
 
+    </div>
 
-<div class="notice">
 
-<div class="date">
-সেপ্টেম্বর ২০২৬
-</div>
+    <div class="notice">
 
-<h3>
-📢 পরীক্ষা সংক্রান্ত তথ্য
-</h3>
+      <strong>
+        📢 Examination Notice
+      </strong>
 
-<p>
-পরীক্ষার সময়সূচি ও নির্দেশনা এখানে যুক্ত করা যাবে।
-</p>
+      <p>
+        Examination-related information will
+        be published through the department
+        notice board.
+      </p>
 
-</div>
+    </div>
 
 
-<div class="notice">
+    <div class="notice">
 
-<div class="date">
-সেপ্টেম্বর ২০২৬
-</div>
+      <strong>
+        📢 Department Notice
+      </strong>
 
-<h3>
-📢 সেমিনার ও ইভেন্ট
-</h3>
+      <p>
+        Important academic information and
+        announcements will be published
+        regularly on this website.
+      </p>
 
-<p>
-বিভাগের সেমিনার, ওয়ার্কশপ ও অন্যান্য অনুষ্ঠানের
-তথ্য এখানে প্রকাশ করা যাবে।
-</p>
+    </div>
 
-</div>
+  </section>
 
-</div>
 
-</section>
+  <!-- COURSES -->
 
+  <section
+    id="courses"
+    class="about"
+  >
 
-<!-- STUDENTS -->
+    <div class="section-title">
 
-<section class="student-section" id="students">
+      <h2>
+        Important Courses
+      </h2>
 
-<div class="container">
+      <p>
+        Major Economics Courses
+      </p>
 
-<div class="title">
+    </div>
 
-<h2>
-শিক্ষার্থীদের জন্য
-</h2>
 
-<p>
-Student Resources
-</p>
+    <div class="table-wrapper">
 
-</div>
+      <table>
 
-<div class="student-grid">
+        <thead>
 
-<div class="card">
+          <tr>
 
-<div class="icon">
-📚
-</div>
+            <th>
+              Course
+            </th>
 
-<h3>
-Course Materials
-</h3>
+            <th>
+              Subject
+            </th>
 
-<p>
-কোর্সের নোট, বই ও
-শিক্ষা উপকরণ।
-</p>
+            <th>
+              Description
+            </th>
 
-</div>
+          </tr>
 
+        </thead>
 
-<div class="card">
 
-<div class="icon">
-📅
-</div>
+        <tbody>
 
-<h3>
-Class Routine
-</h3>
+          <tr>
 
-<p>
-ক্লাস রুটিন ও
-একাডেমিক সময়সূচি।
-</p>
+            <td>
+              ECO-101
+            </td>
 
-</div>
+            <td>
+              Microeconomics
+            </td>
 
+            <td>
+              Consumer, producer, market
+              and price theory.
+            </td>
 
-<div class="card">
+          </tr>
 
-<div class="icon">
-📊
-</div>
 
-<h3>
-Result
-</h3>
+          <tr>
 
-<p>
-ভবিষ্যতে অনলাইন
-রেজাল্ট সার্চ সুবিধা যুক্ত করা যাবে।
-</p>
+            <td>
+              ECO-102
+            </td>
 
-</div>
+            <td>
+              Macroeconomics
+            </td>
 
-</div>
+            <td>
+              National income, inflation,
+              unemployment and economic growth.
+            </td>
 
-</div>
+          </tr>
 
-</section>
 
+          <tr>
 
-<!-- CONTACT -->
+            <td>
+              ECO-103
+            </td>
 
-<section class="contact" id="contact">
+            <td>
+              Statistics for Economics
+            </td>
 
-<div class="container">
+            <td>
+              Statistical methods and
+              economic data analysis.
+            </td>
 
-<div class="title">
+          </tr>
 
-<h2>
-যোগাযোগ
-</h2>
 
-<p>
-Department of Economics
-</p>
+          <tr>
 
-</div>
+            <td>
+              ECO-104
+            </td>
 
-<div class="contact-grid">
+            <td>
+              Mathematical Economics
+            </td>
 
-<div>
+            <td>
+              Mathematical tools for
+              economic analysis.
+            </td>
 
-<div class="contact-item">
+          </tr>
 
-📍 <strong>ঠিকানা</strong>
 
-<br>
+          <tr>
 
-Brahmaputra International University,
-Bangladesh
+            <td>
+              ECO-105
+            </td>
 
-</div>
+            <td>
+              Development Economics
+            </td>
 
+            <td>
+              Poverty, inequality and
+              economic development.
+            </td>
 
-<div class="contact-item">
+          </tr>
 
-📞 <strong>ফোন</strong>
+        </tbody>
 
-<br>
+      </table>
 
-অফিসিয়াল ফোন নম্বর এখানে যুক্ত করুন
+    </div>
 
-</div>
+  </section>
 
 
-<div class="contact-item">
+  <!-- WHY ECONOMICS -->
 
-✉️ <strong>ইমেইল</strong>
+  <section>
 
-<br>
+    <div class="section-title">
 
-অফিসিয়াল ইমেইল এখানে যুক্ত করুন
+      <h2>
+        Why Study Economics?
+      </h2>
 
-</div>
+      <p>
+        Opportunities in Economics
+      </p>
 
+    </div>
 
-<div class="contact-item">
 
-🏛️ <strong>Department</strong>
+    <div class="cards">
 
-<br>
 
-Department of Economics
+      <div class="card">
 
-</div>
+        <div class="icon">
+          📊
+        </div>
 
-</div>
+        <h3>
+          Data Analysis
+        </h3>
 
+        <p>
+          Develop skills in economic and
+          social data analysis.
+        </p>
 
-<form onsubmit="sendMessage(event)">
+      </div>
 
-<input
-type="text"
-placeholder="আপনার নাম"
-required
->
 
-<input
-type="email"
-placeholder="আপনার ইমেইল"
-required
->
+      <div class="card">
 
-<input
-type="text"
-placeholder="বিষয়"
-required
->
+        <div class="icon">
+          🏦
+        </div>
 
-<textarea
-placeholder="আপনার বার্তা লিখুন..."
-required
-></textarea>
+        <h3>
+          Banking
+        </h3>
 
-<button type="submit">
-বার্তা পাঠান
-</button>
+        <p>
+          Build a career in banking and
+          financial institutions.
+        </p>
 
-</form>
+      </div>
 
-</div>
 
-</div>
+      <div class="card">
 
-</section>
+        <div class="icon">
+          🏛️
+        </div>
 
+        <h3>
+          Government
+        </h3>
 
-<!-- FOOTER -->
+        <p>
+          Opportunities in government
+          service and policy making.
+        </p>
 
-<footer>
+      </div>
 
-<p>
-🎓 Department of Economics
-</p>
 
-<p>
-Brahmaputra International University (BIU)
-</p>
+      <div class="card">
 
-<p>
-© 2026 All Rights Reserved.
-</p>
+        <div class="icon">
+          🔬
+        </div>
 
-</footer>
+        <h3>
+          Research
+        </h3>
 
+        <p>
+          Build a strong foundation for
+          research and higher education.
+        </p>
 
-<script>
+      </div>
 
-function toggleMenu(){
 
-document
-.getElementById("nav")
-.classList
-.toggle("active");
+    </div>
 
-}
+  </section>
 
 
-document
-.querySelectorAll("nav a")
-.forEach(function(link){
+  <!-- CONTACT -->
 
-link.addEventListener("click",function(){
+  <section
+    class="contact"
+    id="contact"
+  >
 
-document
-.getElementById("nav")
-.classList
-.remove("active");
+    <div class="section-title">
 
-});
+      <h2>
+        Contact Us
+      </h2>
 
-});
+      <p>
+        Department of Economics
+      </p>
 
+    </div>
 
-function sendMessage(event){
 
-event.preventDefault();
+    <div class="contact-grid">
 
-alert(
-"ধন্যবাদ! আপনার বার্তা গ্রহণ করা হয়েছে।"
-);
 
-}
+      <div class="contact-box">
 
-</script>
+        <h3>
+          📍 University Address
+        </h3>
+
+        <p>
+          Brahmaputra International University
+        </p>
+
+        <p>
+          Department of Economics
+        </p>
+
+        <p>
+          Bangladesh
+        </p>
+
+      </div>
+
+
+      <div class="contact-box">
+
+        <h3>
+          📞 Contact Information
+        </h3>
+
+        <p>
+          📧 Email:
+          economics@biu.edu.bd
+        </p>
+
+        <p>
+          📱 Phone:
+          +880 1XXXXXXXXX
+        </p>
+
+        <p>
+          🌐 Department of Economics
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      ©
+      <span id="year"></span>
+      BIU Economics Department
+    </p>
+
+    <p>
+      Brahmaputra International University
+    </p>
+
+    <p>
+      Department of Economics
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    document.querySelectorAll(
+      'a[href^="#"]'
+    ).forEach(function(link) {
+
+      link.addEventListener(
+        "click",
+        function(e) {
+
+          const target =
+            document.querySelector(
+              this.getAttribute("href")
+            );
+
+          if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+              behavior: "smooth"
+            });
+
+          }
+
+        }
+      );
+
+    });
+
+  </script>
 
 </body>
 </html>
