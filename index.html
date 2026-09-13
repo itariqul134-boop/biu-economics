@@ -1,2060 +1,321 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <meta name="description"
-        content="Department of Economics, Brahmaputra International University">
-
-  <meta name="theme-color"
-        content="#063b2b">
-
-  <title>
-    Department of Economics | Brahmaputra International University
-  </title>
-
-
-  <style>
-
-    /* =========================
-       GLOBAL
-    ========================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --green: #063b2b;
-      --light-green: #087f5b;
-      --gold: #f5c542;
-      --white: #ffffff;
-      --light: #f5f7fb;
-      --dark: #222222;
-      --gray: #666666;
-      --border: #dddddd;
-    }
-
-    body {
-      font-family:
-        Arial,
-        "Noto Sans",
-        sans-serif;
-
-      background: var(--light);
-      color: var(--dark);
-
-      line-height: 1.6;
-
-      transition:
-        background .3s,
-        color .3s;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-
-    /* =========================
-       TOP BAR
-    ========================= */
-
-    .topbar {
-      background: var(--green);
-      color: white;
-
-      padding: 8px 5%;
-
-      display: flex;
-      justify-content: space-between;
-
-      flex-wrap: wrap;
-
-      font-size: 14px;
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      background: white;
-
-      padding: 14px 5%;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      box-shadow:
-        0 2px 12px rgba(0,0,0,.08);
-
-      position: sticky;
-      top: 0;
-
-      z-index: 1000;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 58px;
-      height: 58px;
-
-      border-radius: 50%;
-
-      background: var(--light-green);
-
-      color: white;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .logo-text h1 {
-      color: var(--green);
-      font-size: 20px;
-    }
-
-    .logo-text p {
-      color: var(--gray);
-      font-size: 13px;
-    }
-
-
-    /* NAVIGATION */
-
-    nav {
-      display: flex;
-      align-items: center;
-
-      gap: 17px;
-
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--dark);
-
-      font-weight: bold;
-
-      font-size: 14px;
-
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: var(--light-green);
-    }
-
-
-    /* DARK MODE BUTTON */
-
-    .dark-btn {
-      border: none;
-
-      background: var(--green);
-
-      color: white;
-
-      padding: 8px 12px;
-
-      border-radius: 7px;
-
-      cursor: pointer;
-
-      font-size: 15px;
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-
-      min-height: 520px;
-
-      background:
-
-        linear-gradient(
-          rgba(3,50,38,.87),
-          rgba(3,50,38,.87)
-        ),
-
-        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80")
-
-        center/cover;
-
-      color: white;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 60px 20px;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero h2 {
-      font-size: 46px;
-      margin-bottom: 15px;
-    }
-
-    .hero h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: var(--gold);
-    }
-
-    .hero p {
-      font-size: 19px;
-      margin-bottom: 20px;
-    }
-
-
-    /* BUTTON */
-
-    .btn {
-
-      display: inline-block;
-
-      padding: 12px 24px;
-
-      border-radius: 8px;
-
-      margin: 5px;
-
-      font-weight: bold;
-
-      background: var(--gold);
-
-      color: #222;
-
-      transition: .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-green {
-      background: var(--light-green);
-      color: white;
-    }
-
-
-    /* =========================
-       SECTION
-    ========================= */
-
-    section {
-      padding: 65px 6%;
-    }
-
-    .section-title {
-      text-align: center;
-
-      margin-bottom: 38px;
-    }
-
-    .section-title h2 {
-      color: var(--green);
-
-      font-size: 31px;
-
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: var(--gray);
-    }
-
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about {
-      background: white;
-    }
-
-    .about-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 40px;
-
-      align-items: center;
-    }
-
-    .about-grid h3 {
-      color: var(--green);
-
-      font-size: 26px;
-
-      margin-bottom: 12px;
-    }
-
-    .about-box {
-
-      background: var(--light);
-
-      padding: 28px;
-
-      border-radius: 12px;
-
-      border-left:
-        5px solid var(--light-green);
-    }
-
-    .about-box h3 {
-      color: var(--light-green);
-
-      margin-bottom: 15px;
-    }
-
-    .about-box p {
-      margin: 8px 0;
-    }
-
-
-    /* =========================
-       STATISTICS
-    ========================= */
-
-    .stats {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-      gap: 20px;
-    }
-
-    .stat {
-
-      background: white;
-
-      padding: 25px;
-
-      text-align: center;
-
-      border-radius: 12px;
-
-      box-shadow:
-        0 4px 15px rgba(0,0,0,.06);
-    }
-
-    .stat h3 {
-      font-size: 34px;
-
-      color: var(--light-green);
-    }
-
-    .stat p {
-      color: var(--gray);
-    }
-
-
-    /* =========================
-       PROGRAMS
-    ========================= */
-
-    .program-list {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
-
-      gap: 22px;
-    }
-
-    .program {
-
-      background: white;
-
-      padding: 27px;
-
-      border-radius: 12px;
-
-      border-top:
-        5px solid var(--light-green);
-
-      box-shadow:
-        0 4px 15px rgba(0,0,0,.06);
-
-      transition: .2s;
-    }
-
-    .program:hover {
-      transform: translateY(-4px);
-    }
-
-    .program h3 {
-      color: var(--green);
-
-      margin-bottom: 10px;
-    }
-
-
-    /* =========================
-       FACULTY
-    ========================= */
-
-    .cards {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-
-      gap: 24px;
-    }
-
-    .card {
-
-      background: white;
-
-      border-radius: 12px;
-
-      overflow: hidden;
-
-      box-shadow:
-        0 4px 18px rgba(0,0,0,.07);
-
-      text-align: center;
-    }
-
-    .faculty-card img {
-
-      width: 100%;
-
-      height: 270px;
-
-      object-fit: cover;
-
-      display: block;
-    }
-
-    .faculty-info {
-      padding: 20px;
-    }
-
-    .faculty-info h3 {
-
-      color: var(--light-green);
-
-      margin-bottom: 6px;
-
-      font-size: 21px;
-    }
-
-    .faculty-info p {
-      color: var(--gray);
-    }
-
-
-    /* =========================
-       NOTICE
-    ========================= */
-
-    .notice {
-
-      background: white;
-
-      border-left:
-        5px solid var(--light-green);
-
-      padding: 19px;
-
-      margin-bottom: 13px;
-
-      border-radius: 8px;
-
-      box-shadow:
-        0 2px 10px rgba(0,0,0,.05);
-    }
-
-    .notice strong {
-      color: var(--light-green);
-    }
-
-
-    /* =========================
-       COURSES TABLE
-    ========================= */
-
-    .table-wrapper {
-
-      overflow-x: auto;
-
-      background: white;
-
-      border-radius: 10px;
-
-      box-shadow:
-        0 3px 15px rgba(0,0,0,.06);
-    }
-
-    table {
-
-      width: 100%;
-
-      border-collapse: collapse;
-
-      min-width: 650px;
-    }
-
-    th,
-    td {
-
-      padding: 14px;
-
-      border-bottom:
-        1px solid var(--border);
-
-      text-align: left;
-    }
-
-    th {
-
-      background: var(--green);
-
-      color: white;
-    }
-
-
-    /* =========================
-       RESULT SEARCH
-    ========================= */
-
-    .result-box {
-
-      max-width: 600px;
-
-      margin: auto;
-
-      background: white;
-
-      padding: 30px;
-
-      border-radius: 14px;
-
-      box-shadow:
-        0 5px 20px rgba(0,0,0,.08);
-
-      text-align: center;
-    }
-
-    .result-box input {
-
-      width: 100%;
-
-      padding: 13px;
-
-      margin: 10px 0;
-
-      border:
-        1px solid #ccc;
-
-      border-radius: 7px;
-
-      font-size: 16px;
-    }
-
-    .result-box button {
-
-      border: none;
-
-      cursor: pointer;
-
-      padding: 12px 25px;
-
-      border-radius: 7px;
-
-      background: var(--light-green);
-
-      color: white;
-
-      font-weight: bold;
-    }
-
-    #result {
-
-      margin-top: 20px;
-
-      display: none;
-
-      padding: 20px;
-
-      border-radius: 10px;
-
-      background: var(--light);
-
-      text-align: left;
-    }
-
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-
-      background: var(--green);
-
-      color: white;
-    }
-
-    .contact .section-title h2,
-    .contact .section-title p {
-
-      color: white;
-    }
-
-    .contact-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 30px;
-    }
-
-    .contact-box {
-
-      background:
-        rgba(255,255,255,.08);
-
-      padding: 28px;
-
-      border-radius: 12px;
-    }
-
-    .contact-box h3 {
-      margin-bottom: 13px;
-    }
-
-    .contact-box p {
-      margin: 8px 0;
-    }
-
-
-    /* SOCIAL BUTTONS */
-
-    .socials {
-      margin-top: 15px;
-    }
-
-    .socials a {
-
-      display: inline-block;
-
-      background: white;
-
-      color: var(--green);
-
-      padding: 9px 14px;
-
-      border-radius: 7px;
-
-      margin: 4px;
-
-      font-weight: bold;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-
-      background: #02271d;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 28px 15px;
-    }
-
-    footer p {
-      margin: 5px;
-      font-size: 14px;
-    }
-
-
-    /* =========================
-       BACK TO TOP
-    ========================= */
-
-    #topBtn {
-
-      position: fixed;
-
-      bottom: 20px;
-
-      right: 20px;
-
-      width: 45px;
-
-      height: 45px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: var(--light-green);
-
-      color: white;
-
-      cursor: pointer;
-
-      font-size: 20px;
-
-      display: none;
-
-      z-index: 999;
-    }
-
-
-    /* =========================
-       DARK MODE
-    ========================= */
-
-    body.dark {
-      background: #121212;
-      color: #eeeeee;
-    }
-
-    body.dark header,
-    body.dark .card,
-    body.dark .program,
-    body.dark .notice,
-    body.dark .stat,
-    body.dark .result-box,
-    body.dark .table-wrapper,
-    body.dark .about-box {
-      background: #1d1d1d;
-      color: #eeeeee;
-    }
-
-    body.dark nav a {
-      color: white;
-    }
-
-    body.dark .section-title h2,
-    body.dark .about-grid h3,
-    body.dark .program h3 {
-      color: #7ee2bb;
-    }
-
-    body.dark .section-title p,
-    body.dark .faculty-info p,
-    body.dark .stat p {
-      color: #cccccc;
-    }
-
-    body.dark .about {
-      background: #151515;
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 768px) {
-
-      .topbar {
-
-        justify-content: center;
-
-        text-align: center;
-
-        gap: 5px;
-      }
-
-      header {
-
-        flex-direction: column;
-
-        gap: 15px;
-      }
-
-      nav {
-
-        justify-content: center;
-
-        gap: 10px;
-      }
-
-      .hero {
-
-        min-height: 450px;
-      }
-
-      .hero h2 {
-        font-size: 31px;
-      }
-
-      .hero h3 {
-        font-size: 20px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .about-grid,
-      .contact-grid {
-
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 48px 5%;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Department of Economics | BIU</title>
+<meta name="description" content="Department of Economics, Brahmaputra International University">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#f5f7fa;
+    color:#222;
+    line-height:1.6;
+}
+header{
+    background:linear-gradient(135deg,#063b2a,#087f5b);
+    color:white;
+    padding:25px 15px;
+    text-align:center;
+}
+header h1{font-size:28px;margin-bottom:5px}
+header p{font-size:15px}
+nav{
+    background:#052d22;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+}
+nav a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:14px 12px;
+    font-size:14px;
+}
+nav a:hover{background:#087f5b}
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+}
+.hero{
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(rgba(0,70,50,.8),rgba(0,70,50,.8));
+    color:white;
+    padding:50px 20px;
+}
+.hero h2{font-size:42px;margin-bottom:10px}
+.hero p{font-size:19px;margin-bottom:25px}
+.btn{
+    display:inline-block;
+    background:#fff;
+    color:#075c43;
+    padding:12px 22px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+}
+section{padding:55px 0}
+section h2{
+    text-align:center;
+    color:#075c43;
+    margin-bottom:30px;
+    font-size:28px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+.faculty-grid,.course-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+.faculty{
+    text-align:center;
+}
+.faculty img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #087f5b;
+    margin-bottom:12px;
+}
+.faculty h3{color:#075c43}
+.notice{
+    border-left:5px solid #087f5b;
+}
+.search-box{
+    display:flex;
+    gap:10px;
+    max-width:600px;
+    margin:auto;
+}
+.search-box input{
+    flex:1;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+.search-box button{
+    padding:13px 20px;
+    border:0;
+    border-radius:6px;
+    background:#087f5b;
+    color:white;
+}
+.course{
+    border-top:4px solid #087f5b;
+}
+.course h3{color:#075c43}
+footer{
+    background:#052d22;
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+@media(max-width:600px){
+    header h1{font-size:22px}
+    .hero h2{font-size:30px}
+    nav ul{justify-content:flex-start}
+    .search-box{flex-direction:column}
+}
+</style>
 </head>
-
 
 <body>
 
-
-  <!-- =========================
-       TOP BAR
-  ========================= -->
-
-  <div class="topbar">
-
-    <span>
-      📚 Department of Economics
-    </span>
-
-    <span>
-      🎓 Brahmaputra International University
-    </span>
-
-  </div>
-
-
-  <!-- =========================
-       HEADER
-  ========================= -->
-
-  <header>
-
-    <div class="logo-area">
-
-      <div class="logo">
-        BIU
-      </div>
-
-      <div class="logo-text">
-
-        <h1>
-          BIU Economics
-        </h1>
-
-        <p>
-          Department of Economics
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <nav>
-
-      <a href="#home">
-        Home
-      </a>
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#programs">
-        Programs
-      </a>
-
-      <a href="#faculty">
-        Faculty
-      </a>
-
-      <a href="#notice">
-        Notice
-      </a>
-
-      <a href="#courses">
-        Courses
-      </a>
-
-      <a href="#result">
-        Result
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
-      <button
-        class="dark-btn"
-        onclick="toggleDarkMode()"
-        title="Dark Mode">
-
-        🌙
-
-      </button>
-
-    </nav>
-
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
-  <section
-    class="hero"
-    id="home">
-
-    <div class="hero-content">
-
-      <h3>
-        Brahmaputra International University
-      </h3>
-
-      <h2>
-        Department of Economics
-      </h2>
-
-      <p>
-        Excellence in Economics Education,
-        Research and Knowledge
-      </p>
-
-      <p>
-        Empowering students with economic
-        knowledge, analytical skills and
-        professional excellence.
-      </p>
-
-
-      <a
-        href="#about"
-        class="btn">
-
-        About Department
-
-      </a>
-
-
-      <a
-        href="#programs"
-        class="btn btn-green">
-
-        Academic Programs
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       ABOUT
-  ========================= -->
-
-  <section
-    class="about"
-    id="about">
-
-    <div class="section-title">
-
-      <h2>
-        About the Department
-      </h2>
-
-      <p>
-        Department of Economics
-      </p>
-
-    </div>
-
-
-    <div class="about-grid">
-
-
-      <div>
-
-        <h3>
-          Department of Economics
-        </h3>
-
-        <p>
-
-          The Department of Economics at
-          Brahmaputra International University
-          provides quality education in
-          economics, statistics, research and
-          economic analysis.
-
-        </p>
-
-        <br>
-
-        <p>
-
-          Our goal is to prepare students for
-          higher education, research, banking,
-          government service, development
-          organizations, corporate careers and
-          other professional fields.
-
-        </p>
-
-      </div>
-
-
-      <div class="about-box">
-
-        <h3>
-          Our Objectives
-        </h3>
-
-        <p>
-          ✔ Quality Economics Education
-        </p>
-
-        <p>
-          ✔ Research-Oriented Learning
-        </p>
-
-        <p>
-          ✔ Data Analysis Skills
-        </p>
-
-        <p>
-          ✔ Economic Problem Solving
-        </p>
-
-        <p>
-          ✔ Career Development
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       STATISTICS
-  ========================= -->
-
-  <section>
-
-    <div class="section-title">
-
-      <h2>
-        Department at a Glance
-      </h2>
-
-      <p>
-        Academic Excellence
-      </p>
-
-    </div>
-
-
-    <div class="stats">
-
-
-      <div class="stat">
-
-        <h3>
-          01
-        </h3>
-
-        <p>
-          Economics Department
-        </p>
-
-      </div>
-
-
-      <div class="stat">
-
-        <h3>
-          04+
-        </h3>
-
-        <p>
-          Academic Areas
-        </p>
-
-      </div>
-
-
-      <div class="stat">
-
-        <h3>
-          100+
-        </h3>
-
-        <p>
-          Students
-        </p>
-
-      </div>
-
-
-      <div class="stat">
-
-        <h3>
-          01
-        </h3>
-
-        <p>
-          Academic Community
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       PROGRAMS
-  ========================= -->
-
-  <section id="programs">
-
-    <div class="section-title">
-
-      <h2>
-        Academic Programs
-      </h2>
-
-      <p>
-        Our Academic Programs
-      </p>
-
-    </div>
-
-
-    <div class="program-list">
-
-
-      <div class="program">
-
-        <h3>
-          BSS in Economics
-        </h3>
-
-        <p>
-
-          Undergraduate education in Economics
-          covering Microeconomics,
-          Macroeconomics, Statistics,
-          Mathematical Economics and
-          other important areas.
-
-        </p>
-
-      </div>
-
-
-      <div class="program">
-
-        <h3>
-          Economics Research
-        </h3>
-
-        <p>
-
-          Students are encouraged to conduct
-          research and analyze real-world
-          economic problems using data and
-          economic theories.
-
-        </p>
-
-      </div>
-
-
-      <div class="program">
-
-        <h3>
-          Career Development
-        </h3>
-
-        <p>
-
-          Preparation for careers in banking,
-          government, research, development
-          organizations, NGOs and corporate
-          sectors.
-
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FACULTY
-  ========================= -->
-
-  <section
-    id="faculty"
-    class="about">
-
-    <div class="section-title">
-
-      <h2>
-        Our Faculty
-      </h2>
-
-      <p>
-        Department of Economics
-      </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-      <!-- MINHAZ SIR -->
-
-      <div class="card faculty-card">
-
-        <img
-          src="minhaz.jpg"
-          alt="Minhaz Sir">
-
-        <div class="faculty-info">
-
-          <h3>
-            Minhaz Sir
-          </h3>
-
-          <p>
-            <strong>
-              Assistant Professor
-            </strong>
-          </p>
-
-          <p>
-            Department of Economics
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- SADIA -->
-
-      <div class="card faculty-card">
-
-        <img
-          src="sadia.jpg"
-          alt="Sadia">
-
-        <div class="faculty-info">
-
-          <h3>
-            Sadia
-          </h3>
-
-          <p>
-            Lecturer
-          </p>
-
-          <p>
-            Department of Economics
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- THIRD FACULTY -->
-
-      <div class="card">
-
-        <div class="faculty-info">
-
-          <div class="icon">
-            👨‍🏫
-          </div>
-
-          <h3>
-            Faculty Member
-          </h3>
-
-          <p>
-            Department of Economics
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       NOTICE BOARD
-  ========================= -->
-
-  <section id="notice">
-
-    <div class="section-title">
-
-      <h2>
-        Notice Board
-      </h2>
-
-      <p>
-        Important Academic Notices
-      </p>
-
-    </div>
-
-
-    <div class="notice">
-
-      <strong>
-        📢 Academic Notice
-      </strong>
-
-      <p>
-        All students are requested to
-        attend classes regularly.
-      </p>
-
-    </div>
-
-
-    <div class="notice">
-
-      <strong>
-        📢 Examination Notice
-      </strong>
-
-      <p>
-        Examination-related information
-        will be published through the
-        department notice board.
-      </p>
-
-    </div>
-
-
-    <div class="notice">
-
-      <strong>
-        📢 Department Notice
-      </strong>
-
-      <p>
-        Important academic information
-        and announcements will be
-        published regularly.
-      </p>
-
-    </div>
-
-
-  </section>
-
-
-  <!-- =========================
-       COURSES
-  ========================= -->
-
-  <section
-    id="courses"
-    class="about">
-
-    <div class="section-title">
-
-      <h2>
-        Important Courses
-      </h2>
-
-      <p>
-        Major Economics Courses
-      </p>
-
-    </div>
-
-
-    <div class="table-wrapper">
-
-      <table>
-
-        <thead>
-
-          <tr>
-
-            <th>
-              Course
-            </th>
-
-            <th>
-              Subject
-            </th>
-
-            <th>
-              Description
-            </th>
-
-          </tr>
-
-        </thead>
-
-
-        <tbody>
-
-
-          <tr>
-
-            <td>
-              ECO-101
-            </td>
-
-            <td>
-              Microeconomics
-            </td>
-
-            <td>
-              Consumer, producer,
-              market and price theory.
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td>
-              ECO-102
-            </td>
-
-            <td>
-              Macroeconomics
-            </td>
-
-            <td>
-              National income, inflation,
-              unemployment and growth.
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td>
-              ECO-103
-            </td>
-
-            <td>
-              Statistics for Economics
-            </td>
-
-            <td>
-              Statistical methods and
-              economic data analysis.
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td>
-              ECO-104
-            </td>
-
-            <td>
-              Mathematical Economics
-            </td>
-
-            <td>
-              Mathematical tools for
-              economic analysis.
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td>
-              ECO-105
-            </td>
-
-            <td>
-              Development Economics
-            </td>
-
-            <td>
-              Poverty, inequality and
-              economic development.
-            </td>
-
-          </tr>
-
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       RESULT SEARCH
-  ========================= -->
-
-  <section id="result">
-
-    <div class="section-title">
-
-      <h2>
-        Student Result Search
-      </h2>
-
-      <p>
-        Enter your student ID to check result
-      </p>
-
-    </div>
-
-
-    <div class="result-box">
-
-      <h3>
-        Search Result
-      </h3>
-
-      <input
-        type="text"
-        id="studentId"
-        placeholder="Enter Student ID">
-
-      <button
-        onclick="searchResult()">
-
-        Search Result
-
-      </button>
-
-
-      <div id="resultBox">
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       WHY ECONOMICS
-  ========================= -->
-
-  <section>
-
-    <div class="section-title">
-
-      <h2>
-        Why Study Economics?
-      </h2>
-
-      <p>
-        Career Opportunities
-      </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-      <div class="card">
-
-        <div class="faculty-info">
-
-          <div class="icon">
-            📊
-          </div>
-
-          <h3>
-            Data Analysis
-          </h3>
-
-          <p>
-            Develop skills in economic
-            and social data analysis.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="faculty-info">
-
-          <div class="icon">
-            🏦
-          </div>
-
-          <h3>
-            Banking
-          </h3>
-
-          <p>
-            Build a career in banking
-            and financial institutions.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="faculty-info">
-
-          <div class="icon">
-            🏛️
-          </div>
-
-          <h3>
-            Government
-          </h3>
-
-          <p>
-            Opportunities in government
-            service and policy making.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="faculty-info">
-
-          <div class="icon">
-            🔬
-          </div>
-
-          <h3>
-            Research
-          </h3>
-
-          <p>
-            Build a strong foundation
-            for research and higher education.
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CONTACT
-  ========================= -->
-
-  <section
-    class="contact"
-    id="contact">
-
-    <div class="section-title">
-
-      <h2>
-        Contact Us
-      </h2>
-
-      <p>
-        Department of Economics
-      </p>
-
-    </div>
-
-
-    <div class="contact-grid">
-
-
-      <div class="contact-box">
-
-        <h3>
-          📍 University
-        </h3>
-
-        <p>
-          Brahmaputra International University
-        </p>
-
-        <p>
-          Department of Economics
-        </p>
-
-        <p>
-          Bangladesh
-        </p>
-
-      </div>
-
-
-      <div class="contact-box">
-
-        <h3>
-          📞 Contact
-        </h3>
-
-        <p>
-          📧 economics@biu.edu.bd
-        </p>
-
-        <p>
-          📱 +880 1XXXXXXXXX
-        </p>
-
-
-        <div class="socials">
-
-          <a
-            href="#"
-            onclick="alert('Facebook link will be added here.')">
-
-            Facebook
-
-          </a>
-
-
-          <a
-            href="#"
-            onclick="alert('WhatsApp link will be added here.')">
-
-            WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <p>
-
-      ©
-      <span id="year"></span>
-
-      Department of Economics
-
-    </p>
-
-    <p>
-      Brahmaputra International University
-    </p>
-
-    <p>
-      Academic Excellence • Research • Knowledge
-    </p>
-
-  </footer>
-
-
-  <!-- BACK TO TOP -->
-
-  <button
-    id="topBtn"
-    onclick="goTop()">
-
-    ↑
-
-  </button>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
-  <script>
-
-
-    /* CURRENT YEAR */
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-
-    /* DARK MODE */
-
-    function toggleDarkMode() {
-
-      document.body.classList.toggle("dark");
-
-    }
-
-
-    /* RESULT SEARCH */
-
-    function searchResult() {
-
-      const id =
-        document.getElementById("studentId")
-        .value
-        .trim();
-
-      const box =
-        document.getElementById("resultBox");
-
-
-      if (id === "") {
-
-        box.style.display = "block";
-
-        box.innerHTML =
-
-          "<p>⚠️ Please enter your Student ID.</p>";
-
+<header>
+    <h1>Department of Economics</h1>
+    <p>Brahmaputra International University (BIU)</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#faculty">Faculty</a></li>
+<li><a href="#notice">Notice</a></li>
+<li><a href="#result">Result</a></li>
+<li><a href="#students">Students</a></li>
+<li><a href="#books">Books</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#creator">Creator</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+<div>
+    <h2>Economics Department</h2>
+    <p>Academic Information & Student Portal</p>
+    <a class="btn" href="#notice">Latest Notice</a>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2>About Department</h2>
+<div class="card">
+<p>
+Welcome to the Department of Economics, Brahmaputra International University (BIU).
+This website provides department notices, student results, student information,
+academic books, courses and faculty information.
+</p>
+</div>
+</div>
+</section>
+
+<section id="faculty">
+<div class="container">
+<h2>Faculty Members</h2>
+
+<div class="faculty-grid">
+
+<div class="card faculty">
+<img src="minhaz.jpg" alt="Md. Minhaj Uddin">
+<h3>Md. Minhaj Uddin</h3>
+<p>Assistant Professor</p>
+</div>
+
+<div class="card faculty">
+<img src="sadia.jpg" alt="Sadia Afrin Tamanna">
+<h3>Sadia Afrin Tamanna</h3>
+<p>Lecturer</p>
+</div>
+
+<div class="card faculty">
+<img src="Teacher_1771216225_2026-02-16.jpeg" alt="Mst. Sima Khatun">
+<h3>Mst. Sima Khatun</h3>
+<p>Lecturer</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="notice">
+<div class="container">
+<h2>Notice Board</h2>
+<div class="card notice">
+<p>Firebase Database সংযোগ করা হয়নি।</p>
+</div>
+</div>
+</section>
+
+<section id="result">
+<div class="container">
+<h2>Student Result Search</h2>
+<div class="card">
+<div class="search-box">
+<input type="text" id="roll" placeholder="Enter Student Roll">
+<button onclick="searchResult()">Search Result</button>
+</div>
+<p id="resultMessage" style="text-align:center;margin-top:20px">
+Search Result
+</p>
+</div>
+</div>
+</section>
+
+<section id="students">
+<div class="container">
+<h2>Student Information</h2>
+<div class="card">
+<p style="text-align:center">Student data পাওয়া যাচ্ছে না।</p>
+</div>
+</div>
+</section>
+
+<section id="books">
+<div class="container">
+<h2>Department Books</h2>
+<div class="card">
+<p style="text-align:center">Book data পাওয়া যাচ্ছে না।</p>
+</div>
+</div>
+</section>
+
+<section id="courses">
+<div class="container">
+<h2>Economics Courses</h2>
+
+<div class="course-grid">
+
+<div class="card course"><h3>ECO 101</h3><p>Principles of Microeconomics</p><b>Credit: 3</b></div>
+<div class="card course"><h3>ECO 102</h3><p>Principles of Macroeconomics</p><b>Credit: 3</b></div>
+<div class="card course"><h3>ECO 103</h3><p>Statistics for Economics</p><b>Credit: 3</b></div>
+<div class="card course"><h3>ECO 104</h3><p>Mathematical Economics</p><b>Credit: 3</b></div>
+<div class="card course"><h3>ECO 105</h3><p>Development Economics</p><b>Credit: 3</b></div>
+<div class="card course"><h3>ECO 106</h3><p>International Economics</p><b>Credit: 3</b></div>
+<div class="card course"><h3>ECO 107</h3><p>Econometrics</p><b>Credit: 3</b></div>
+
+</div>
+</div>
+</section>
+
+<section id="creator">
+<div class="container">
+<h2>Website Creator</h2>
+<div class="card" style="text-align:center">
+<h3>Md. Tariqul Islam</h3>
+<p>Website Creator & Developer</p>
+<p>Student, Department of Economics</p>
+<p>Brahmaputra International University (BIU)</p>
+<p>Jamalpur, Mymensingh, Bangladesh</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2>Contact</h2>
+<div class="card">
+<p><b>Department:</b> Economics</p>
+<p><b>University:</b> Brahmaputra International University (BIU)</p>
+<p><b>Location:</b> Jamalpur, Mymensingh, Bangladesh</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Department of Economics, BIU</p>
+<p>Website Creator & Developer: Md. Tariqul Islam</p>
+</footer>
+
+<script>
+function searchResult(){
+    const roll=document.getElementById("roll").value.trim();
+    const message=document.getElementById("resultMessage");
+
+    if(!roll){
+        message.innerHTML="দয়া করে Roll Number লিখুন।";
         return;
-
-      }
-
-
-      /*
-        DEMO RESULT
-
-        Replace this section with
-        Firebase/database later.
-      */
-
-      if (id === "101") {
-
-        box.style.display = "block";
-
-        box.innerHTML = `
-
-          <h3>Student Result</h3>
-
-          <p>
-            <strong>Student ID:</strong>
-            101
-          </p>
-
-          <p>
-            <strong>Program:</strong>
-            BSS in Economics
-          </p>
-
-          <p>
-            <strong>Semester:</strong>
-            1st Semester
-          </p>
-
-          <p>
-            <strong>GPA:</strong>
-            3.75
-          </p>
-
-          <p>
-            <strong>Status:</strong>
-            Passed
-          </p>
-
-        `;
-
-      } else {
-
-        box.style.display = "block";
-
-        box.innerHTML = `
-
-          <p>
-            ❌ No demo result found.
-          </p>
-
-          <p>
-            Student ID:
-            <strong>${id}</strong>
-          </p>
-
-          <p>
-            Please contact the department.
-          </p>
-
-        `;
-
-      }
-
     }
 
-
-    /* BACK TO TOP */
-
-    window.addEventListener(
-      "scroll",
-      function() {
-
-        const button =
-          document.getElementById("topBtn");
-
-        if (
-          document.documentElement.scrollTop > 300
-        ) {
-
-          button.style.display = "block";
-
-        } else {
-
-          button.style.display = "none";
-
-        }
-
-      }
-    );
-
-
-    function goTop() {
-
-      window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-      });
-
-    }
-
-
-    /* SMOOTH NAVIGATION */
-
-    document.querySelectorAll(
-      'a[href^="#"]'
-    ).forEach(function(link) {
-
-      link.addEventListener(
-        "click",
-        function(e) {
-
-          const target =
-            document.querySelector(
-              this.getAttribute("href")
-            );
-
-          if (target) {
-
-            e.preventDefault();
-
-            target.scrollIntoView({
-
-              behavior: "smooth"
-
-            });
-
-          }
-
-        }
-      );
-
-    });
-
-
-  </script>
-
+    message.innerHTML="Roll "+roll+" এর ফলাফল বর্তমানে পাওয়া যাচ্ছে না।";
+}
+</script>
 
 </body>
 </html>
