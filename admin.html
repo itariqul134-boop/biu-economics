@@ -55,45 +55,26 @@ button.delete{background:#dc3545}
 </div>
 </div>
 
-<script type="module">
+<script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-database-compat.js"></script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-import {
-getAuth,
-signInWithEmailAndPassword,
-onAuthStateChanged,
-signOut
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-import {
-getDatabase,
-ref,
-push,
-onValue,
-remove
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
-
+<script>
 const firebaseConfig = {
-apiKey: "AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
-authDomain: "biu-economics-e5503.firebaseapp.com",
-projectId: "biu-economics-e5503",
-storageBucket: "biu-economics-e5503.firebasestorage.app",
-messagingSenderId: "600075103328",
-appId: "1:600075103328:web:78f59b9f3f2bd847f26705",
-measurementId: "G-M6S37HHPYQ"
+  apiKey: "AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
+  authDomain: "biu-economics-e5503.firebaseapp.com",
+  projectId: "biu-economics-e5503",
+  storageBucket: "biu-economics-e5503.firebasestorage.app",
+  messagingSenderId: "600075103328",
+  appId: "1:600075103328:web:78f59b9f3f2bd847f26705",
+  measurementId: "G-M6S37HHPYQ"
 };
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth = firebase.auth();
 
-const db = getDatabase(app,{
-databaseURL:
-"https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app"
-});
+const db = firebase.database();
 
 const email = document.getElementById("email");
 const password = document.getElementById("password");
@@ -103,128 +84,114 @@ const adminPanel = document.getElementById("adminPanel");
 const noticeText = document.getElementById("noticeText");
 const noticeList = document.getElementById("noticeList");
 
-document.getElementById("loginBtn").onclick = async () => {
+document.getElementById("loginBtn").onclick = async function() {
 
-try {
+  message.textContent = "Login হচ্ছে...";
 
-await signInWithEmailAndPassword(
-auth,
-email.value,
-password.value
-);
+  try {
+    await auth.signInWithEmailAndPassword(
+      email.value.trim(),
+      password.value
+    );
 
-alert("Login successful."); message.textContent = "Login successful.";
+    message.textContent = "✅ Login successful.";
 
-} catch(error) {
+  } catch(error) {
 
-alert("Login failed: " + error.message); message.textContent = "Login failed: " + error.message;
+    message.textContent = "❌ Login failed: " + error.message;
 
-}
-
+  }
 };
 
-onAuthStateChanged(auth,user=>{
+auth.onAuthStateChanged(function(user) {
 
-if(user){
+  if(user) {
 
-loginBox.style.display="none";
-adminPanel.style.display="block";
-loadNotices();
+    loginBox.style.display = "none";
+    adminPanel.style.display = "block";
+    loadNotices();
 
-}else{
+  } else {
 
-loginBox.style.display="block";
-adminPanel.style.display="none";
+    loginBox.style.display = "block";
+    adminPanel.style.display = "none";
 
-}
+  }
 
 });
 
-function loadNotices(){
+function loadNotices() {
 
-onValue(ref(db,"notices"),snapshot=>{
+  db.ref("notices").on("value", function(snapshot) {
 
-noticeList.innerHTML="";
+    noticeList.innerHTML = "";
 
-if(!snapshot.exists()){
+    if(!snapshot.exists()) {
+      noticeList.innerHTML = "<p>কোনো Notice নেই।</p>";
+      return;
+    }
 
-noticeList.innerHTML="<p>কোনো Notice নেই।</p>";
-return;
+    const data = snapshot.val();
+
+    Object.keys(data).forEach(function(key) {
+
+      const div = document.createElement("div");
+      div.className = "notice";
+
+      const p = document.createElement("p");
+      p.textContent = data[key];
+
+      const button = document.createElement("button");
+      button.textContent = "🗑️ Delete";
+      button.className = "delete";
+
+      button.onclick = async function() {
+
+        if(confirm("এই Notice মুছে ফেলবেন?")) {
+          await db.ref("notices/" + key).remove();
+        }
+
+      };
+
+      div.innerHTML = "<b>📢 Notice</b>";
+      div.appendChild(p);
+      div.appendChild(button);
+      noticeList.appendChild(div);
+
+    });
+
+  });
 
 }
 
-const data=snapshot.val();
+document.getElementById("addBtn").onclick = async function() {
 
-Object.keys(data).forEach(key=>{
+  const text = noticeText.value.trim();
 
-const div=document.createElement("div");
+  if(!text) {
+    alert("Notice লিখুন।");
+    return;
+  }
 
-div.className="notice";
+  try {
 
-div.innerHTML=
-"<b>📢 Notice</b><p>"+
-data[key]+
-"</p>";
+    await db.ref("notices").push(text);
 
-const button=document.createElement("button");
+    noticeText.value = "";
 
-button.textContent="🗑️ Delete";
+    alert("✅ Notice সফলভাবে যোগ হয়েছে!");
 
-button.className="delete";
+  } catch(error) {
 
-button.onclick=async()=>{
+    alert("❌ Notice যোগ করা যায়নি: " + error.message);
 
-if(confirm("এই Notice মুছে ফেলবেন?")){
-
-await remove(ref(db,"notices/"+key));
-
-}
+  }
 
 };
 
-div.appendChild(button);
-
-noticeList.appendChild(div);
-
-});
-
-});
-
-}
-
-document.getElementById("addBtn").onclick=async()=>{
-
-const text=noticeText.value.trim();
-
-if(!text){
-
-alert("Notice লিখুন।");
-return;
-
-}
-
-try{
-
-await push(ref(db,"notices"),text);
-
-noticeText.value="";
-
-alert("Notice সফলভাবে যোগ হয়েছে!");
-
-}catch(error){
-
-alert("Notice যোগ করা যায়নি: "+error.message);
-
-}
-
+document.getElementById("logoutBtn").onclick = function() {
+  auth.signOut();
 };
-
-document.getElementById("logoutBtn").onclick=()=>{
-
-signOut(auth);
-
-};
-
 </script>
 
 </body>
