@@ -3,120 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BIU Economics - Admin</title>
+<title>BIU Economics Admin</title>
 
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-database-compat.js"></script>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f1f5f9;
-  color:#111827;
+margin:0;
+font-family:Arial,sans-serif;
+background:#f1f5f9;
 }
 
 .login-box{
-  width:90%;
-  max-width:400px;
-  margin:100px auto;
-  background:white;
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.15);
+width:90%;
+max-width:400px;
+margin:100px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.login-box h2{
-  text-align:center;
-  margin-bottom:25px;
-}
+h2{text-align:center}
 
 input,textarea{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:1px solid #d1d5db;
-  border-radius:8px;
-  font-size:15px;
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:15px;
 }
 
 button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-}
-
-button:hover{
-  opacity:.9;
-}
-
-.message{
-  text-align:center;
-  margin-top:15px;
-  font-weight:bold;
+width:100%;
+padding:12px;
+margin-top:10px;
+border:0;
+border-radius:8px;
+background:#2563eb;
+color:white;
+font-size:16px;
 }
 
 .dashboard{
-  display:none;
-  width:92%;
-  max-width:800px;
-  margin:30px auto;
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.10);
-}
-
-.dashboard h2{
-  text-align:center;
+display:none;
+width:92%;
+max-width:800px;
+margin:30px auto;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 .section{
-  margin-top:25px;
-  padding:20px;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
+margin-top:25px;
+padding:20px;
+border:1px solid #ddd;
+border-radius:12px;
 }
 
-.logout{
-  background:#dc2626;
-  margin-top:25px;
+.logout{background:#dc2626}
+
+.message{
+text-align:center;
+margin-top:12px;
+font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGIN ================= -->
-
+<!-- LOGIN -->
 <div id="loginScreen" class="login-box">
 
 <h2>🔐 Admin Login</h2>
 
 <input
-  type="email"
-  id="email"
-  placeholder="Gmail / Email"
-  autocomplete="username"
+id="email"
+type="email"
+placeholder="Gmail / Email"
 >
 
 <input
-  type="password"
-  id="password"
-  placeholder="Password"
-  autocomplete="current-password"
+id="password"
+type="password"
+placeholder="Password"
 >
 
 <button id="loginBtn">Login</button>
@@ -126,23 +104,21 @@ button:hover{
 </div>
 
 
-<!-- ================= ADMIN DASHBOARD ================= -->
-
+<!-- DASHBOARD -->
 <div id="dashboard" class="dashboard">
 
 <h2>🎓 BIU Economics Admin Dashboard</h2>
 
 
 <!-- NOTICE -->
-
 <div class="section">
 
 <h3>📢 Notice Management</h3>
 
 <textarea
-  id="noticeText"
-  rows="5"
-  placeholder="নতুন Notice লিখুন"
+id="noticeText"
+rows="5"
+placeholder="নতুন Notice লিখুন"
 ></textarea>
 
 <button id="addNoticeBtn">
@@ -153,39 +129,33 @@ Notice যোগ করুন
 
 
 <!-- RESULT -->
-
 <div class="section">
 
 <h3>📊 Result Management</h3>
 
 <input
-  type="text"
-  id="resultRoll"
-  placeholder="Roll Number"
+id="resultRoll"
+placeholder="Roll Number"
 >
 
 <input
-  type="text"
-  id="resultName"
-  placeholder="Student Name"
+id="resultName"
+placeholder="Student Name"
 >
 
 <input
-  type="text"
-  id="resultStudentId"
-  placeholder="Student ID"
+id="resultStudentId"
+placeholder="Student ID"
 >
 
 <input
-  type="text"
-  id="resultSemester"
-  placeholder="Semester"
+id="resultSemester"
+placeholder="Semester"
 >
 
 <input
-  type="text"
-  id="resultGpa"
-  placeholder="GPA"
+id="resultGpa"
+placeholder="GPA"
 >
 
 <button id="addResultBtn">
@@ -204,226 +174,210 @@ Result যোগ করুন
 
 <script>
 
-/* ================= FIREBASE CONFIG ================= */
+/* FIREBASE */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
-  authDomain: "biu-economics-e5503.firebaseapp.com",
-  projectId: "biu-economics-e5503",
-  storageBucket: "biu-economics-e5503.firebasestorage.app",
-  messagingSenderId: "600075103328",
-  appId: "1:600075103328:web:78f59b9f3f2bd847f26705",
-  measurementId: "G-M6S37HHPYQY"
+
+apiKey:"AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
+
+authDomain:"biu-economics-e5503.firebaseapp.com",
+
+databaseURL:"https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+projectId:"biu-economics-e5503",
+
+storageBucket:"biu-economics-e5503.firebasestorage.app",
+
+messagingSenderId:"600075103328",
+
+appId:"1:600075103328:web:78f59b9f3f2bd847f26705",
+
+measurementId:"G-M6S37HHPYQY"
+
 };
+
 
 firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const db = firebase.database();
+const auth=firebase.auth();
+
+const db=firebase.database();
 
 
-/* ================= LOGIN ================= */
+/* LOGIN */
 
-document.getElementById("loginBtn").addEventListener("click", async function(){
+document.getElementById("loginBtn").onclick=async function(){
 
-  const email =
-    document.getElementById("email").value.trim();
+const email=document.getElementById("email").value.trim();
 
-  const password =
-    document.getElementById("password").value;
+const password=document.getElementById("password").value;
 
-  const message =
-    document.getElementById("loginMessage");
+const message=document.getElementById("loginMessage");
 
+if(!email || !password){
 
-  if(!email || !password){
+message.textContent="❌ Email এবং Password দিন";
 
-    message.textContent =
-      "❌ Email এবং Password দিন";
+return;
 
-    return;
-  }
+}
 
+message.textContent="⏳ Login হচ্ছে...";
 
-  message.textContent =
-    "⏳ Login হচ্ছে...";
+try{
 
+await auth.signInWithEmailAndPassword(email,password);
 
-  try{
+message.textContent="";
 
-    await auth.signInWithEmailAndPassword(
-      email,
-      password
-    );
+}catch(error){
 
-    message.textContent = "";
+message.textContent="❌ Login ব্যর্থ: "+error.message;
 
-  }catch(error){
+}
 
-    console.log(error);
-
-    message.textContent =
-      "❌ Login ব্যর্থ: " + error.message;
-
-  }
-
-});
+};
 
 
-/* ================= LOGIN STATE ================= */
+/* AUTH STATE */
 
 auth.onAuthStateChanged(function(user){
 
-  const loginScreen =
-    document.getElementById("loginScreen");
+if(user){
 
-  const dashboard =
-    document.getElementById("dashboard");
+document.getElementById("loginScreen").style.display="none";
 
+document.getElementById("dashboard").style.display="block";
 
-  if(user){
+}else{
 
-    loginScreen.style.display = "none";
-    dashboard.style.display = "block";
+document.getElementById("loginScreen").style.display="block";
 
-  }else{
+document.getElementById("dashboard").style.display="none";
 
-    loginScreen.style.display = "block";
-    dashboard.style.display = "none";
-
-  }
+}
 
 });
 
 
-/* ================= ADD RESULT ================= */
+/* ADD NOTICE */
 
-document.getElementById("addResultBtn").addEventListener("click", async function(){
+document.getElementById("addNoticeBtn").onclick=async function(){
 
-  const roll =
-    document.getElementById("resultRoll").value.trim();
+const notice=document.getElementById("noticeText").value.trim();
 
-  const name =
-    document.getElementById("resultName").value.trim();
+if(!notice){
 
-  const studentId =
-    document.getElementById("resultStudentId").value.trim();
+alert("❌ Notice লিখুন");
 
-  const semester =
-    document.getElementById("resultSemester").value.trim();
+return;
 
-  const gpa =
-    document.getElementById("resultGpa").value.trim();
+}
 
+if(!auth.currentUser){
 
-  if(!roll || !name || !studentId || !semester || !gpa){
+alert("❌ আগে Login করুন");
 
-    alert("❌ সব তথ্য পূরণ করুন");
+return;
 
-    return;
-  }
+}
 
+try{
 
-  try{
+const id="notice_"+Date.now();
 
-    await db
-      .ref("results/" + roll)
-      .set({
+await db.ref("notices/"+id).set(notice);
 
-        name: name,
-        roll: roll,
-        studentId: studentId,
-        semester: semester,
-        gpa: gpa
+alert("✅ Notice সফলভাবে যোগ হয়েছে");
 
-      });
+document.getElementById("noticeText").value="";
+
+}catch(error){
+
+alert("❌ Notice যোগ হয়নি: "+error.message);
+
+}
+
+};
 
 
-    alert("✅ Result সফলভাবে যোগ হয়েছে");
+/* ADD RESULT */
+
+document.getElementById("addResultBtn").onclick=async function(){
+
+const roll=document.getElementById("resultRoll").value.trim();
+
+const name=document.getElementById("resultName").value.trim();
+
+const studentId=document.getElementById("resultStudentId").value.trim();
+
+const semester=document.getElementById("resultSemester").value.trim();
+
+const gpa=document.getElementById("resultGpa").value.trim();
 
 
-    document.getElementById("resultRoll").value = "";
-    document.getElementById("resultName").value = "";
-    document.getElementById("resultStudentId").value = "";
-    document.getElementById("resultSemester").value = "";
-    document.getElementById("resultGpa").value = "";
+if(!roll || !name || !studentId || !semester || !gpa){
+
+alert("❌ সব তথ্য পূরণ করুন");
+
+return;
+
+}
+
+if(!auth.currentUser){
+
+alert("❌ আগে Login করুন");
+
+return;
+
+}
 
 
-  }catch(error){
+try{
 
-    alert(
-      "❌ Result যোগ হয়নি: " +
-      error.message
-    );
+await db.ref("results/"+roll).set({
 
-  }
+name:name,
 
-});
+roll:roll,
 
+studentId:studentId,
 
-/* ================= ADD NOTICE ================= */
+semester:semester,
 
-document.getElementById("addNoticeBtn").addEventListener("click", async function(){
-
-  const notice =
-    document.getElementById("noticeText").value.trim();
-
-
-  if(!notice){
-
-    alert("❌ Notice লিখুন");
-
-    return;
-  }
-
-
-  try{
-
-    const noticeId =
-      "notice_" + Date.now();
-
-
-    await db
-      .ref("notices/" + noticeId)
-      .set(notice);
-
-
-    alert("✅ Notice সফলভাবে যোগ হয়েছে");
-
-
-    document.getElementById("noticeText").value = "";
-
-
-  }catch(error){
-
-    alert(
-      "❌ Notice যোগ হয়নি: " +
-      error.message
-    );
-
-  }
+gpa:gpa
 
 });
 
+alert("✅ Result সফলভাবে যোগ হয়েছে");
 
-/* ================= LOGOUT ================= */
+document.getElementById("resultRoll").value="";
 
-document.getElementById("logoutBtn").addEventListener("click", async function(){
+document.getElementById("resultName").value="";
 
-  try{
+document.getElementById("resultStudentId").value="";
 
-    await auth.signOut();
+document.getElementById("resultSemester").value="";
 
-  }catch(error){
+document.getElementById("resultGpa").value="";
 
-    alert(
-      "Logout সমস্যা: " +
-      error.message
-    );
 
-  }
+}catch(error){
 
-});
+alert("❌ Result যোগ হয়নি: "+error.message);
+
+}
+
+};
+
+
+/* LOGOUT */
+
+document.getElementById("logoutBtn").onclick=async function(){
+
+await auth.signOut();
+
+};
 
 </script>
 
