@@ -155,6 +155,7 @@ try {
       await auth.signInWithEmailAndPassword(email, password);
       message.textContent = "✅ Login সফল!";
       document.getElementById("dashboard").style.display = "block";
+      document.querySelector(".box").style.display = "none";
     } catch (error) {
       message.textContent = "❌ Login failed: " + error.message;
     }
