@@ -168,7 +168,7 @@ const app=initializeApp(firebaseConfig);
 const db=getDatabase(app,{databaseURL:"https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app"});
 const noticeList=document.getElementById("noticeList");
 
-onValue(ref(db,"notices"),snapshot=>{
+fetch("https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app/notices.json").then(r=>r.json()).then(data=>{
 noticeList.innerHTML="";
 if(!snapshot.exists()){
 noticeList.innerHTML='<div class="notice">No notices available.</div>';
