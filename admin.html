@@ -3,20 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BIU Economics - Admin Login</title>
+
+<title>BIU Economics - Admin</title>
 
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-database-compat.js"></script>
 
 <style>
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#f1f5f9;
+  color:#111827;
 }
 
 .login-box{
+  width:90%;
   max-width:400px;
   margin:100px auto;
   background:white;
@@ -25,62 +32,75 @@ body{
   box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-h2{
+.login-box h2{
   text-align:center;
-  color:#123;
+  margin-bottom:25px;
 }
 
 input,textarea{
   width:100%;
-  box-sizing:border-box;
   padding:12px;
   margin:8px 0;
-  border:1px solid #ccc;
+  border:1px solid #d1d5db;
   border-radius:8px;
+  font-size:15px;
 }
 
 button{
   width:100%;
   padding:12px;
   margin-top:10px;
-  border:0;
+  border:none;
   border-radius:8px;
   background:#2563eb;
   color:white;
   font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.message{
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
 }
 
 .dashboard{
   display:none;
+  width:92%;
   max-width:800px;
   margin:30px auto;
   background:white;
   padding:25px;
   border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.10);
+}
+
+.dashboard h2{
+  text-align:center;
 }
 
 .section{
-  margin-top:20px;
+  margin-top:25px;
   padding:20px;
-  border:1px solid #ddd;
-  border-radius:10px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
 }
 
 .logout{
   background:#dc2626;
-}
-
-.message{
-  text-align:center;
-  margin-top:10px;
-  font-weight:bold;
+  margin-top:25px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN SCREEN -->
+<!-- ================= LOGIN ================= -->
+
 <div id="loginScreen" class="login-box">
 
 <h2>🔐 Admin Login</h2>
@@ -106,10 +126,14 @@ button{
 </div>
 
 
-<!-- ADMIN DASHBOARD -->
+<!-- ================= ADMIN DASHBOARD ================= -->
+
 <div id="dashboard" class="dashboard">
 
 <h2>🎓 BIU Economics Admin Dashboard</h2>
+
+
+<!-- NOTICE -->
 
 <div class="section">
 
@@ -117,40 +141,70 @@ button{
 
 <textarea
   id="noticeText"
+  rows="5"
   placeholder="নতুন Notice লিখুন"
-  rows="4"
 ></textarea>
 
-<button id="addNoticeBtn">Notice যোগ করুন</button>
+<button id="addNoticeBtn">
+Notice যোগ করুন
+</button>
 
 </div>
 
+
+<!-- RESULT -->
 
 <div class="section">
 
 <h3>📊 Result Management</h3>
 
-<input id="resultRoll" placeholder="Roll Number">
+<input
+  type="text"
+  id="resultRoll"
+  placeholder="Roll Number"
+>
 
-<input id="resultName" placeholder="Student Name">
+<input
+  type="text"
+  id="resultName"
+  placeholder="Student Name"
+>
 
-<input id="resultStudentId" placeholder="Student ID">
+<input
+  type="text"
+  id="resultStudentId"
+  placeholder="Student ID"
+>
 
-<input id="resultSemester" placeholder="Semester">
+<input
+  type="text"
+  id="resultSemester"
+  placeholder="Semester"
+>
 
-<input id="resultGpa" placeholder="GPA">
+<input
+  type="text"
+  id="resultGpa"
+  placeholder="GPA"
+>
 
-<button id="addResultBtn">Result যোগ করুন</button>
+<button id="addResultBtn">
+Result যোগ করুন
+</button>
 
 </div>
 
 
-<button id="logoutBtn" class="logout">Logout</button>
+<button id="logoutBtn" class="logout">
+🚪 Logout
+</button>
 
 </div>
 
 
 <script>
+
+/* ================= FIREBASE CONFIG ================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
@@ -158,4 +212,220 @@ const firebaseConfig = {
   projectId: "biu-economics-e5503",
   storageBucket: "biu-economics-e5503.firebasestorage.app",
   messagingSenderId: "600075103328",
-  appId: "1:600075103328:web:78f59b9
+  appId: "1:600075103328:web:78f59b9f3f2bd847f26705",
+  measurementId: "G-M6S37HHPYQY"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.database();
+
+
+/* ================= LOGIN ================= */
+
+document.getElementById("loginBtn").addEventListener("click", async function(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const message =
+    document.getElementById("loginMessage");
+
+
+  if(!email || !password){
+
+    message.textContent =
+      "❌ Email এবং Password দিন";
+
+    return;
+  }
+
+
+  message.textContent =
+    "⏳ Login হচ্ছে...";
+
+
+  try{
+
+    await auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+
+    message.textContent = "";
+
+  }catch(error){
+
+    console.log(error);
+
+    message.textContent =
+      "❌ Login ব্যর্থ: " + error.message;
+
+  }
+
+});
+
+
+/* ================= LOGIN STATE ================= */
+
+auth.onAuthStateChanged(function(user){
+
+  const loginScreen =
+    document.getElementById("loginScreen");
+
+  const dashboard =
+    document.getElementById("dashboard");
+
+
+  if(user){
+
+    loginScreen.style.display = "none";
+    dashboard.style.display = "block";
+
+  }else{
+
+    loginScreen.style.display = "block";
+    dashboard.style.display = "none";
+
+  }
+
+});
+
+
+/* ================= ADD RESULT ================= */
+
+document.getElementById("addResultBtn").addEventListener("click", async function(){
+
+  const roll =
+    document.getElementById("resultRoll").value.trim();
+
+  const name =
+    document.getElementById("resultName").value.trim();
+
+  const studentId =
+    document.getElementById("resultStudentId").value.trim();
+
+  const semester =
+    document.getElementById("resultSemester").value.trim();
+
+  const gpa =
+    document.getElementById("resultGpa").value.trim();
+
+
+  if(!roll || !name || !studentId || !semester || !gpa){
+
+    alert("❌ সব তথ্য পূরণ করুন");
+
+    return;
+  }
+
+
+  try{
+
+    await db
+      .ref("results/" + roll)
+      .set({
+
+        name: name,
+        roll: roll,
+        studentId: studentId,
+        semester: semester,
+        gpa: gpa
+
+      });
+
+
+    alert("✅ Result সফলভাবে যোগ হয়েছে");
+
+
+    document.getElementById("resultRoll").value = "";
+    document.getElementById("resultName").value = "";
+    document.getElementById("resultStudentId").value = "";
+    document.getElementById("resultSemester").value = "";
+    document.getElementById("resultGpa").value = "";
+
+
+  }catch(error){
+
+    alert(
+      "❌ Result যোগ হয়নি: " +
+      error.message
+    );
+
+  }
+
+});
+
+
+/* ================= ADD NOTICE ================= */
+
+document.getElementById("addNoticeBtn").addEventListener("click", async function(){
+
+  const notice =
+    document.getElementById("noticeText").value.trim();
+
+
+  if(!notice){
+
+    alert("❌ Notice লিখুন");
+
+    return;
+  }
+
+
+  try{
+
+    const noticeId =
+      "notice_" + Date.now();
+
+
+    await db
+      .ref("notices/" + noticeId)
+      .set(notice);
+
+
+    alert("✅ Notice সফলভাবে যোগ হয়েছে");
+
+
+    document.getElementById("noticeText").value = "";
+
+
+  }catch(error){
+
+    alert(
+      "❌ Notice যোগ হয়নি: " +
+      error.message
+    );
+
+  }
+
+});
+
+
+/* ================= LOGOUT ================= */
+
+document.getElementById("logoutBtn").addEventListener("click", async function(){
+
+  try{
+
+    await auth.signOut();
+
+  }catch(error){
+
+    alert(
+      "Logout সমস্যা: " +
+      error.message
+    );
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
