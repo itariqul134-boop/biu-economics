@@ -85,108 +85,20 @@ const noticeText = document.getElementById("noticeText");
 const noticeList = document.getElementById("noticeList");
 
 document.getElementById("loginBtn").onclick = async function() {
+  const emailValue = email.value.trim();
+  const passwordValue = password.value;
 
-  message.textContent = "Login হচ্ছে...";
-
-  try {
-    await auth.signInWithEmailAndPassword(
-      email.value.trim(),
-      password.value
-    );
-
-    message.textContent = "✅ Login successful.";
-
-  } catch(error) {
-
-    message.textContent = "❌ Login failed: " + error.message;
-
-  }
-};
-
-auth.onAuthStateChanged(function(user) {
-
-  if(user) {
-
-    loginBox.style.display = "none";
-    adminPanel.style.display = "block";
-    loadNotices();
-
-  } else {
-
-    loginBox.style.display = "block";
-    adminPanel.style.display = "none";
-
-  }
-
-});
-
-function loadNotices() {
-
-  db.ref("notices").on("value", function(snapshot) {
-
-    noticeList.innerHTML = "";
-
-    if(!snapshot.exists()) {
-      noticeList.innerHTML = "<p>কোনো Notice নেই।</p>";
-      return;
-    }
-
-    const data = snapshot.val();
-
-    Object.keys(data).forEach(function(key) {
-
-      const div = document.createElement("div");
-      div.className = "notice";
-
-      const p = document.createElement("p");
-      p.textContent = data[key];
-
-      const button = document.createElement("button");
-      button.textContent = "🗑️ Delete";
-      button.className = "delete";
-
-      button.onclick = async function() {
-
-        if(confirm("এই Notice মুছে ফেলবেন?")) {
-          await db.ref("notices/" + key).remove();
-        }
-
-      };
-
-      div.innerHTML = "<b>📢 Notice</b>";
-      div.appendChild(p);
-      div.appendChild(button);
-      noticeList.appendChild(div);
-
-    });
-
-  });
-
-}
-
-document.getElementById("addBtn").onclick = async function() {
-
-  const text = noticeText.value.trim();
-
-  if(!text) {
-    alert("Notice লিখুন।");
+  if(!emailValue || !passwordValue){
+    message.textContent = "❌ Email এবং Password দিন।";
     return;
   }
 
   try {
-
-    await db.ref("notices").push(text);
-
-    noticeText.value = "";
-
-    alert("✅ Notice সফলভাবে যোগ হয়েছে!");
-
+    await auth.signInWithEmailAndPassword(emailValue, passwordValue);
+    message.textContent = "✅ Login successful.";
   } catch(error) {
-
-    alert("❌ Notice যোগ করা যায়নি: " + error.message);
-
+    message.textContent = "❌ Login failed: " + error.message;
   }
-
 };
 
 document.getElementById("logoutBtn").onclick = function() {
