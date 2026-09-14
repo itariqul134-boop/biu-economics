@@ -165,7 +165,7 @@ measurementId:"G-M6S37HHPYQ"
 };
 
 const app=initializeApp(firebaseConfig);
-const db=getDatabase(app);
+const db=getDatabase(app,{databaseURL:"https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app"});
 const noticeList=document.getElementById("noticeList");
 
 onValue(ref(db,"notices"),snapshot=>{
