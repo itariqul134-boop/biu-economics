@@ -150,37 +150,23 @@ footer{background:#0b2c4d;color:white;text-align:center;padding:25px}
 <p>Website Creator & Developer: Md. Tariqul Islam</p>
 </footer>
 
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import{getDatabase,ref,onValue}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
-
-const firebaseConfig={
-apiKey:"AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
-authDomain:"biu-economics-e5503.firebaseapp.com",
-projectId:"biu-economics-e5503",
-storageBucket:"biu-economics-e5503.firebasestorage.app",
-messagingSenderId:"600075103328",
-appId:"1:600075103328:web:78f59b9f3f2bd847f26705",
-measurementId:"G-M6S37HHPYQ"
-};
-
-const app=initializeApp(firebaseConfig);
-const db=getDatabase(app,{databaseURL:"https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app"});
+<script>
 const noticeList=document.getElementById("noticeList");
-
-fetch("https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app/notices.json").then(r=>r.json()).then(data=>{
+fetch("https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app/notices.json")
+.then(response=>{if(!response.ok)throw new Error("Firebase error");return response.json()})
+.then(data=>{
 noticeList.innerHTML="";
-if(!snapshot.exists()){
-noticeList.innerHTML='<div class="notice">No notices available.</div>';
-return;
-}
-const data=snapshot.val();
-Object.keys(data).forEach(key=>{
+if(!data){noticeList.innerHTML="<div class="notice">No notices available.</div>";return;}
+Object.values(data).forEach(text=>{
 const div=document.createElement("div");
 div.className="notice";
-div.innerHTML="<b>📢 Notice</b><p>"+data[key]+"</p>";
+div.innerHTML="<b>📢 Notice</b><p>"+text+"</p>";
 noticeList.appendChild(div);
 });
+})
+.catch(error=>{
+console.error(error);
+noticeList.innerHTML="<div class="notice"><b>Notice loading failed.</b><p>Please try again later.</p></div>";
 });
 </script>
 
