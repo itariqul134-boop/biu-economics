@@ -141,7 +141,7 @@ message.textContent="✅ Login successful.";
 
 }catch(error){
 
-message.textContent="❌ Login failed: "+error.message;
+message.textContent="❌ Login failed: "+(error?.message || error);
 
 }
 
