@@ -60,6 +60,51 @@ border-radius:6px;
 
 </div>
 
+<script>
+const db = firebase.database();
+
+document.getElementById("addNoticeBtn").onclick = async function(){
+const text = document.getElementById("noticeText").value.trim();
+if(!text){alert("Notice লিখুন");return;}
+try{
+await db.ref("notices").push(text);
+alert("✅ Notice যোগ হয়েছে");
+document.getElementById("noticeText").value="";
+}catch(error){
+alert("❌ Notice যোগ হয়নি: "+error.message);
+}
+};
+
+document.getElementById("addResultBtn").onclick = async function(){
+const roll = document.getElementById("resultRoll").value.trim();
+const name = document.getElementById("resultName").value.trim();
+const studentId = document.getElementById("resultStudentId").value.trim();
+const semester = document.getElementById("resultSemester").value.trim();
+const gpa = document.getElementById("resultGpa").value.trim();
+
+if(!roll || !name || !studentId || !semester || !gpa){
+alert("সব তথ্য পূরণ করুন");return;
+}
+
+try{
+await db.ref("results/"+roll).set({
+name:name,
+roll:roll,
+studentId:studentId,
+semester:semester,
+gpa:gpa
+});
+alert("✅ Result যোগ হয়েছে");
+document.getElementById("resultRoll").value="";
+document.getElementById("resultName").value="";
+document.getElementById("resultStudentId").value="";
+document.getElementById("resultSemester").value="";
+document.getElementById("resultGpa").value="";
+}catch(error){
+alert("❌ Result যোগ হয়নি: "+error.message);
+}
+};
+</script>
 </body>
 </html>
 
@@ -155,11 +200,6 @@ try {
       await auth.signInWithEmailAndPassword(email, password);
       message.textContent = "✅ Login সফল!";
       document.getElementById("dashboard").style.display = "block"; document.querySelector(".box").style.display = "none";
-    } catch (error) {
-      message.textContent = "❌ Login failed: " + error.message;
-    }
-  };
-
 } catch (error) {
   message.textContent = "❌ Firebase error: " + error.message;
 }
@@ -198,5 +238,50 @@ Logout
 
 </div>
 
+<script>
+const db = firebase.database();
+
+document.getElementById("addNoticeBtn").onclick = async function(){
+const text = document.getElementById("noticeText").value.trim();
+if(!text){alert("Notice লিখুন");return;}
+try{
+await db.ref("notices").push(text);
+alert("✅ Notice যোগ হয়েছে");
+document.getElementById("noticeText").value="";
+}catch(error){
+alert("❌ Notice যোগ হয়নি: "+error.message);
+}
+};
+
+document.getElementById("addResultBtn").onclick = async function(){
+const roll = document.getElementById("resultRoll").value.trim();
+const name = document.getElementById("resultName").value.trim();
+const studentId = document.getElementById("resultStudentId").value.trim();
+const semester = document.getElementById("resultSemester").value.trim();
+const gpa = document.getElementById("resultGpa").value.trim();
+
+if(!roll || !name || !studentId || !semester || !gpa){
+alert("সব তথ্য পূরণ করুন");return;
+}
+
+try{
+await db.ref("results/"+roll).set({
+name:name,
+roll:roll,
+studentId:studentId,
+semester:semester,
+gpa:gpa
+});
+alert("✅ Result যোগ হয়েছে");
+document.getElementById("resultRoll").value="";
+document.getElementById("resultName").value="";
+document.getElementById("resultStudentId").value="";
+document.getElementById("resultSemester").value="";
+document.getElementById("resultGpa").value="";
+}catch(error){
+alert("❌ Result যোগ হয়নি: "+error.message);
+}
+};
+</script>
 </body>
 </html>
