@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIU Economics Admin</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f1f5f9;margin:0;color:#1e293b}
+header{background:#0b5ed7;color:white;padding:22px;text-align:center}
+.container{max-width:700px;margin:25px auto;padding:15px}
+.card{background:white;padding:20px;margin-bottom:20px;border-radius:12px;box-shadow:0 2px 10px #0001}
+input,textarea,button{width:100%;box-sizing:border-box;padding:12px;margin:7px 0;border-radius:7px;border:1px solid #ccc;font-size:16px}
+button{background:#0b5ed7;color:white;border:0;cursor:pointer;font-weight:bold}
+button.delete{background:#dc3545}
+.notice{border:1px solid #ddd;border-radius:8px;padding:12px;margin:10px 0}
+#adminPanel{display:none}
+#message{font-weight:bold}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>BIU Economics Admin Panel</h1>
+<p>Brahmaputra International University</p>
+</header>
+
+<div class="container">
+
+<div id="loginBox" class="card">
+<h2>🔐 Admin Login</h2>
+<input id="email" type="email" placeholder="Admin Email">
+<input id="password" type="password" placeholder="Password">
+<button id="loginBtn">Login</button>
+<p id="message"></p>
+</div>
+
+<div id="adminPanel">
+
+<div class="card">
+<h2>📢 নতুন Notice</h2>
+<textarea id="noticeText" rows="5" placeholder="এখানে Notice লিখুন"></textarea>
+<button id="addBtn">Notice যোগ করুন</button>
+</div>
+
+<div class="card">
+<h2>📋 বর্তমান Notice</h2>
+<div id="noticeList">Loading...</div>
+</div>
+
+<div class="card">
+<button id="logoutBtn">Logout</button>
+</div>
+
+</div>
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+getDatabase,
+ref,
+push,
+onValue,
+remove
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
+authDomain: "biu-economics-e5503.firebaseapp.com",
+projectId: "biu-economics-e5503",
+storageBucket: "biu-economics-e5503.firebasestorage.app",
+messagingSenderId: "600075103328",
+appId: "1:600075103328:web:78f59b9f3f2bd847f26705",
+measurementId: "G-M6S37HHPYQ"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getDatabase(app,{
+databaseURL:
+"https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase.app"
+});
+
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const message = document.getElementById("message");
+const loginBox = document.getElementById("loginBox");
+const adminPanel = document.getElementById("adminPanel");
+const noticeText = document.getElementById("noticeText");
+const noticeList = document.getElementById("noticeList");
+
+document.getElementById("loginBtn").onclick = async () => {
+
+try {
+
+await signInWithEmailAndPassword(
+auth,
+email.value,
+password.value
+);
+
+message.textContent = "Login successful.";
+
+} catch(error) {
+
+message.textContent = "Login failed: " + error.message;
+
+}
+
+};
+
+onAuthStateChanged(auth,user=>{
+
+if(user){
+
+loginBox.style.display="none";
+adminPanel.style.display="block";
+loadNotices();
+
+}else{
+
+loginBox.style.display="block";
+adminPanel.style.display="none";
+
+}
+
+});
+
+function loadNotices(){
+
+onValue(ref(db,"notices"),snapshot=>{
+
+noticeList.innerHTML="";
+
+if(!snapshot.exists()){
+
+noticeList.innerHTML="<p>কোনো Notice নেই।</p>";
+return;
+
+}
+
+const data=snapshot.val();
+
+Object.keys(data).forEach(key=>{
+
+const div=document.createElement("div");
+
+div.className="notice";
+
+div.innerHTML=
+"<b>📢 Notice</b><p>"+
+data[key]+
+"</p>";
+
+const button=document.createElement("button");
+
+button.textContent="🗑️ Delete";
+
+button.className="delete";
+
+button.onclick=async()=>{
+
+if(confirm("এই Notice মুছে ফেলবেন?")){
+
+await remove(ref(db,"notices/"+key));
+
+}
+
+};
+
+div.appendChild(button);
+
+noticeList.appendChild(div);
+
+});
+
+});
+
+}
+
+document.getElementById("addBtn").onclick=async()=>{
+
+const text=noticeText.value.trim();
+
+if(!text){
+
+alert("Notice লিখুন।");
+return;
+
+}
+
+try{
+
+await push(ref(db,"notices"),text);
+
+noticeText.value="";
+
+alert("Notice সফলভাবে যোগ হয়েছে!");
+
+}catch(error){
+
+alert("Notice যোগ করা যায়নি: "+error.message);
+
+}
+
+};
+
+document.getElementById("logoutBtn").onclick=()=>{
+
+signOut(auth);
+
+};
+
+</script>
+
+</body>
+</html>
