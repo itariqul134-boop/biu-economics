@@ -75,35 +75,6 @@ alert("❌ Notice যোগ হয়নি: "+error.message);
 }
 };
 
-document.getElementById("addResultBtn").onclick = async function(){
-const roll = document.getElementById("resultRoll").value.trim();
-const name = document.getElementById("resultName").value.trim();
-const studentId = document.getElementById("resultStudentId").value.trim();
-const semester = document.getElementById("resultSemester").value.trim();
-const gpa = document.getElementById("resultGpa").value.trim();
-
-if(!roll || !name || !studentId || !semester || !gpa){
-alert("সব তথ্য পূরণ করুন");return;
-}
-
-try{
-await db.ref("results/"+roll).set({
-name:name,
-roll:roll,
-studentId:studentId,
-semester:semester,
-gpa:gpa
-});
-alert("✅ Result যোগ হয়েছে");
-document.getElementById("resultRoll").value="";
-document.getElementById("resultName").value="";
-document.getElementById("resultStudentId").value="";
-document.getElementById("resultSemester").value="";
-document.getElementById("resultGpa").value="";
-}catch(error){
-alert("❌ Result যোগ হয়নি: "+error.message);
-}
-};
 </script>
 </body>
 </html>
@@ -239,15 +210,26 @@ Logout
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function(){
+document.getElementById("addResultBtn").onclick = async function(){
+const roll=document.getElementById("resultRoll").value.trim();
+const name=document.getElementById("resultName").value.trim();
+const studentId=document.getElementById("resultStudentId").value.trim();
+const semester=document.getElementById("resultSemester").value.trim();
+const gpa=document.getElementById("resultGpa").value.trim();
+if(!roll||!name||!studentId||!semester||!gpa){alert("সব তথ্য পূরণ করুন");return;}
+try{
+const db=firebase.database();
+await db.ref("results/"+roll).set({name:name,roll:roll,studentId:studentId,semester:semester,gpa:gpa});
+alert("✅ Result যোগ হয়েছে");
 document.getElementById("resultRoll").value="";
 document.getElementById("resultName").value="";
 document.getElementById("resultStudentId").value="";
 document.getElementById("resultSemester").value="";
 document.getElementById("resultGpa").value="";
-}catch(error){
-alert("❌ Result যোগ হয়নি: "+error.message);
-}
+}catch(error){alert("❌ Result যোগ হয়নি: "+error.message);}
 };
+});
 </script>
 </body>
 </html>
