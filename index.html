@@ -1,300 +1,147 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Department of Economics | BIU</title>
-<meta name="description" content="Department of Economics, Brahmaputra International University">
-
+<title>Department of Economics - BIU</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:#f5f7fa;
-    color:#222;
-    line-height:1.6;
-}
-header{
-    background:linear-gradient(135deg,#063b2a,#087f5b);
-    color:white;
-    padding:25px 15px;
-    text-align:center;
-}
-header h1{font-size:28px;margin-bottom:5px}
-header p{font-size:15px}
-nav{
-    background:#052d22;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    overflow-x:auto;
-    white-space:nowrap;
-}
-nav ul{
-    list-style:none;
-    display:flex;
-    justify-content:center;
-}
-nav a{
-    display:block;
-    color:white;
-    text-decoration:none;
-    padding:14px 12px;
-    font-size:14px;
-}
-nav a:hover{background:#087f5b}
-.container{
-    width:92%;
-    max-width:1100px;
-    margin:auto;
-}
-.hero{
-    min-height:420px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:linear-gradient(rgba(0,70,50,.8),rgba(0,70,50,.8));
-    color:white;
-    padding:50px 20px;
-}
-.hero h2{font-size:42px;margin-bottom:10px}
-.hero p{font-size:19px;margin-bottom:25px}
-.btn{
-    display:inline-block;
-    background:#fff;
-    color:#075c43;
-    padding:12px 22px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:bold;
-}
-section{padding:55px 0}
-section h2{
-    text-align:center;
-    color:#075c43;
-    margin-bottom:30px;
-    font-size:28px;
-}
-.card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-    margin-bottom:20px;
-}
-.faculty-grid,.course-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:20px;
-}
-.faculty{
-    text-align:center;
-}
-.faculty img{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid #087f5b;
-    margin-bottom:12px;
-}
-.faculty h3{color:#075c43}
-.notice{
-    border-left:5px solid #087f5b;
-}
-.search-box{
-    display:flex;
-    gap:10px;
-    max-width:600px;
-    margin:auto;
-}
-.search-box input{
-    flex:1;
-    padding:13px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:16px;
-}
-.search-box button{
-    padding:13px 20px;
-    border:0;
-    border-radius:6px;
-    background:#087f5b;
-    color:white;
-}
-.course{
-    border-top:4px solid #087f5b;
-}
-.course h3{color:#075c43}
-footer{
-    background:#052d22;
-    color:white;
-    text-align:center;
-    padding:30px 15px;
-}
-@media(max-width:600px){
-    header h1{font-size:22px}
-    .hero h2{font-size:30px}
-    nav ul{justify-content:flex-start}
-    .search-box{flex-direction:column}
-}
+body{margin:0;font-family:Arial;background:#f5f7fa;color:#222}
+header{background:#123b68;color:white;text-align:center;padding:25px}
+nav{background:#0b2c4d;text-align:center}
+nav a{display:inline-block;color:white;text-decoration:none;padding:13px}
+nav a:hover{background:#1769aa}
+.hero{background:#1769aa;color:white;text-align:center;padding:60px 20px}
+section{max-width:1100px;margin:auto;padding:40px 20px}
+h2{text-align:center;color:#123b68}
+.card,.notice{background:white;padding:20px;margin:15px 0;border-radius:8px;box-shadow:0 2px 8px #ccc}
+.faculty{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+.faculty .card{text-align:center;width:220px}
+.faculty img{width:140px;height:140px;object-fit:cover;border-radius:50%}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{border:1px solid #ddd;padding:10px}
+th{background:#123b68;color:white}
+footer{background:#0b2c4d;color:white;text-align:center;padding:25px}
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>Department of Economics</h1>
-    <p>Brahmaputra International University (BIU)</p>
+<h1>Department of Economics</h1>
+<p>Brahmaputra International University (BIU)</p>
 </header>
 
 <nav>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#faculty">Faculty</a></li>
-<li><a href="#notice">Notice</a></li>
-<li><a href="#result">Result</a></li>
-<li><a href="#students">Students</a></li>
-<li><a href="#books">Books</a></li>
-<li><a href="#courses">Courses</a></li>
-<li><a href="#creator">Creator</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#faculty">Faculty</a>
+<a href="#notice">Notice</a>
+<a href="#result">Result</a>
+<a href="#students">Students</a>
+<a href="#books">Books</a>
+<a href="#courses">Courses</a>
+<a href="#creator">Creator</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<section class="hero" id="home">
-<div>
-    <h2>Economics Department</h2>
-    <p>Academic Information & Student Portal</p>
-    <a class="btn" href="#notice">Latest Notice</a>
+<div class="hero" id="home">
+<h2 style="color:white">Economics Department</h2>
+<p>Academic Information & Student Portal</p>
 </div>
-</section>
 
 <section id="about">
-<div class="container">
-<h2>About Department</h2>
+<h2>About the Department</h2>
 <div class="card">
-<p>
-Welcome to the Department of Economics, Brahmaputra International University (BIU).
-This website provides department notices, student results, student information,
-academic books, courses and faculty information.
-</p>
-</div>
+<p>Welcome to the Department of Economics, Brahmaputra International University (BIU). This website provides notices, results, student information, books, courses and faculty information.</p>
 </div>
 </section>
 
 <section id="faculty">
-<div class="container">
-<h2>Faculty Members</h2>
+<h2>Our Faculty</h2>
+<div class="faculty">
 
-<div class="faculty-grid">
-
-<div class="card faculty">
-<img src="minhaz.jpg" alt="Md. Minhaj Uddin">
+<div class="card">
+<img src="minhaz.jpg">
 <h3>Md. Minhaj Uddin</h3>
 <p>Assistant Professor</p>
 </div>
 
-<div class="card faculty">
-<img src="sadia.jpg" alt="Sadia Afrin Tamanna">
+<div class="card">
+<img src="sadia.jpg">
 <h3>Sadia Afrin Tamanna</h3>
 <p>Lecturer</p>
 </div>
 
-<div class="card faculty">
-<img src="Teacher_1771216225_2026-02-16.jpeg" alt="Mst. Sima Khatun">
+<div class="card">
+<img src="Teacher_1771216225_2026-02-16.jpeg">
 <h3>Mst. Sima Khatun</h3>
 <p>Lecturer</p>
 </div>
 
 </div>
-</div>
 </section>
 
 <section id="notice">
-<div class="container">
 <h2>Notice Board</h2>
-<div class="card notice">
-<p>Firebase Database সংযোগ করা হয়নি।</p>
-</div>
-</div>
+<div id="noticeList">Loading notices...</div>
 </section>
 
 <section id="result">
-<div class="container">
-<h2>Student Result Search</h2>
+<h2>Result Search</h2>
 <div class="card">
-<div class="search-box">
-<input type="text" id="roll" placeholder="Enter Student Roll">
+<input id="roll" placeholder="Enter Roll or Student ID" style="padding:12px;width:90%">
+<br><br>
 <button onclick="searchResult()">Search Result</button>
-</div>
-<p id="resultMessage" style="text-align:center;margin-top:20px">
-Search Result
-</p>
-</div>
+<div id="resultBox"></div>
 </div>
 </section>
 
 <section id="students">
-<div class="container">
-<h2>Student Information</h2>
+<h2>Students</h2>
 <div class="card">
-<p style="text-align:center">Student data পাওয়া যাচ্ছে না।</p>
-</div>
+<p>Economics students can use this website for academic notices, results and study resources.</p>
 </div>
 </section>
 
 <section id="books">
-<div class="container">
-<h2>Department Books</h2>
+<h2>Books & Study Resources</h2>
 <div class="card">
-<p style="text-align:center">Book data পাওয়া যাচ্ছে না।</p>
-</div>
+<p>Principles of Microeconomics</p>
+<p>Principles of Macroeconomics</p>
+<p>Statistics for Economics</p>
+<p>Mathematical Economics</p>
 </div>
 </section>
 
 <section id="courses">
-<div class="container">
-<h2>Economics Courses</h2>
-
-<div class="course-grid">
-
-<div class="card course"><h3>ECO 101</h3><p>Principles of Microeconomics</p><b>Credit: 3</b></div>
-<div class="card course"><h3>ECO 102</h3><p>Principles of Macroeconomics</p><b>Credit: 3</b></div>
-<div class="card course"><h3>ECO 103</h3><p>Statistics for Economics</p><b>Credit: 3</b></div>
-<div class="card course"><h3>ECO 104</h3><p>Mathematical Economics</p><b>Credit: 3</b></div>
-<div class="card course"><h3>ECO 105</h3><p>Development Economics</p><b>Credit: 3</b></div>
-<div class="card course"><h3>ECO 106</h3><p>International Economics</p><b>Credit: 3</b></div>
-<div class="card course"><h3>ECO 107</h3><p>Econometrics</p><b>Credit: 3</b></div>
-
-</div>
-</div>
+<h2>Courses</h2>
+<table>
+<tr><th>Code</th><th>Course</th><th>Credit</th></tr>
+<tr><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td></tr>
+<tr><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td></tr>
+<tr><td>ECO 103</td><td>Statistics for Economics</td><td>3</td></tr>
+<tr><td>ECO 104</td><td>Mathematical Economics</td><td>3</td></tr>
+<tr><td>ECO 105</td><td>Development Economics</td><td>3</td></tr>
+<tr><td>ECO 106</td><td>International Economics</td><td>3</td></tr>
+<tr><td>ECO 107</td><td>Econometrics</td><td>3</td></tr>
+</table>
 </section>
 
 <section id="creator">
-<div class="container">
 <h2>Website Creator</h2>
-<div class="card" style="text-align:center">
+<div class="card">
 <h3>Md. Tariqul Islam</h3>
 <p>Website Creator & Developer</p>
-<p>Student, Department of Economics</p>
-<p>Brahmaputra International University (BIU)</p>
+<p>Student, Department of Economics, BIU</p>
 <p>Jamalpur, Mymensingh, Bangladesh</p>
-</div>
 </div>
 </section>
 
 <section id="contact">
-<div class="container">
 <h2>Contact</h2>
 <div class="card">
 <p><b>Department:</b> Economics</p>
 <p><b>University:</b> Brahmaputra International University (BIU)</p>
 <p><b>Location:</b> Jamalpur, Mymensingh, Bangladesh</p>
-</div>
 </div>
 </section>
 
@@ -303,17 +150,44 @@ Search Result
 <p>Website Creator & Developer: Md. Tariqul Islam</p>
 </footer>
 
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import{getDatabase,ref,onValue}from"https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+const firebaseConfig={
+apiKey:"AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
+authDomain:"biu-economics-e5503.firebaseapp.com",
+projectId:"biu-economics-e5503",
+storageBucket:"biu-economics-e5503.firebasestorage.app",
+messagingSenderId:"600075103328",
+appId:"1:600075103328:web:78f59b9f3f2bd847f26705",
+measurementId:"G-M6S37HHPYQ"
+};
+
+const app=initializeApp(firebaseConfig);
+const db=getDatabase(app);
+const noticeList=document.getElementById("noticeList");
+
+onValue(ref(db,"notices"),snapshot=>{
+noticeList.innerHTML="";
+if(!snapshot.exists()){
+noticeList.innerHTML='<div class="notice">No notices available.</div>';
+return;
+}
+const data=snapshot.val();
+Object.keys(data).forEach(key=>{
+const div=document.createElement("div");
+div.className="notice";
+div.innerHTML="<b>📢 Notice</b><p>"+data[key]+"</p>";
+noticeList.appendChild(div);
+});
+});
+</script>
+
 <script>
 function searchResult(){
-    const roll=document.getElementById("roll").value.trim();
-    const message=document.getElementById("resultMessage");
-
-    if(!roll){
-        message.innerHTML="দয়া করে Roll Number লিখুন।";
-        return;
-    }
-
-    message.innerHTML="Roll "+roll+" এর ফলাফল বর্তমানে পাওয়া যাচ্ছে না।";
+document.getElementById("resultBox").innerHTML=
+"<p>Result database will be connected soon.</p>";
 }
 </script>
 
