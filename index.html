@@ -172,8 +172,15 @@ noticeList.innerHTML="<div class="notice"><b>Notice loading failed.</b><p>Please
 
 <script>
 function searchResult(){
-document.getElementById("resultBox").innerHTML=
-"<p>Result database will be connected soon.</p>";
+const roll=document.getElementById("roll").value.trim();
+const results={
+"101":{name:"Demo Student",roll:"101",semester:"1st Semester",gpa:"3.50"},
+"102":{name:"Sample Student",roll:"102",semester:"1st Semester",gpa:"3.75"}
+};
+const r=results[roll];
+document.getElementById("resultBox").innerHTML=r
+? "<h3>Result Found</h3><p><b>Name:</b> "+r.name+"</p><p><b>Roll:</b> "+r.roll+"</p><p><b>Semester:</b> "+r.semester+"</p><p><b>GPA:</b> "+r.gpa+"</p>"
+: "<p>কোনো ফলাফল পাওয়া যায়নি।</p>";
 }
 </script>
 
