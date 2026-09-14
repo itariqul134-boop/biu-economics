@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://itariqul134-boop.github.io/biu-economics/sitemap.xml
