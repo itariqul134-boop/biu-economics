@@ -135,47 +135,6 @@ auth.onAuthStateChanged(function(user){
 });
 </script>
 <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-auth-compat.js"></script>
-
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyB8C4mYZp3jhz1QWl6FG55D3bY9TD1OSCM",
-  authDomain: "biu-economics-e5503.firebaseapp.com",
-  projectId: "biu-economics-e5503",
-  storageBucket: "biu-economics-e5503.firebasestorage.app",
-  messagingSenderId: "600075103328",
-  appId: "1:600075103328:web:78f59b9f3f2bd847f26705",
-  measurementId: "G-M6S37HHPYQ"
-};
-
-const message = document.getElementById("message");
-const loginBtn = document.getElementById("loginBtn");
-
-try {
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-
-  message.textContent = "🟢 Firebase প্রস্তুত। Login করুন।";
-
-  loginBtn.onclick = async function() {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    if (!email || !password) {
-      message.textContent = "❌ Email এবং Password দিন।";
-      return;
-    }
-
-    message.textContent = "🔄 Login হচ্ছে...";
-
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      message.textContent = "✅ Login সফল!";
-      document.getElementById("dashboard").style.display = "block"; document.querySelector(".box").style.display = "none";
-} catch (error) {
-  message.textContent = "❌ Firebase error: " + error.message;
-}
-</script>
 <div id="dashboard" style="display:block;max-width:700px;margin:20px auto;padding:20px;background:white;border-radius:12px;">
 
 <h2>🎓 Admin Dashboard</h2>
