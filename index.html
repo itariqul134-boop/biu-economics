@@ -161,7 +161,7 @@ fetch("https://biu-economics-e5503-default-rtdb.asia-southeast1.firebasedatabase
 .then(response=>{if(!response.ok)throw new Error("Firebase error");return response.json()})
 .then(data=>{
 noticeList.innerHTML="";
-if(!data){noticeList.innerHTML="<div class="notice">No notices available.</div>";return;}
+if(!data){noticeList.innerHTML='<div class="notice">No notices available.</div>';return;}
 Object.values(data).forEach(text=>{
 const div=document.createElement("div");
 div.className="notice";
@@ -171,7 +171,7 @@ noticeList.appendChild(div);
 })
 .catch(error=>{
 console.error(error);
-noticeList.innerHTML="<div class="notice"><b>Notice loading failed.</b><p>Please try again later.</p></div>";
+noticeList.innerHTML='<div class="notice"><b>Notice loading failed.</b><p>Please try again later.</p></div>';
 });
 </script>
 
