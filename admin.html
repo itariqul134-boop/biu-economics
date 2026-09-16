@@ -125,6 +125,8 @@ placeholder="নতুন Notice লিখুন"
 Notice যোগ করুন
 </button>
 
+<div id="noticeList" style="margin-top:15px;"></div>
+
 </div>
 
 
@@ -299,6 +301,70 @@ alert("❌ Notice যোগ হয়নি: "+error.message);
 }
 
 };
+
+
+
+/* NOTICE LIST + DELETE */
+
+async function loadNotices(){
+    const list = document.getElementById("noticeList");
+
+    if(!list) return;
+
+    try{
+        const snap = await db.ref("notices").once("value");
+        const data = snap.val() || {};
+
+        list.innerHTML = "";
+
+        Object.entries(data).forEach(([id, notice]) => {
+
+            const box = document.createElement("div");
+
+            box.style.cssText =
+                "background:white;padding:12px;margin-top:10px;" +
+                "border-radius:8px;border:1px solid #ddd;";
+
+            const text = document.createElement("div");
+            text.textContent = notice;
+
+            const del = document.createElement("button");
+            del.textContent = "🗑️ Delete";
+            del.style.cssText =
+                "margin-top:8px;background:#dc2626;color:white;" +
+                "border:0;padding:8px 12px;border-radius:6px;";
+
+            del.onclick = async function(){
+
+                if(!auth.currentUser){
+                    alert("❌ আগে Login করুন");
+                    return;
+                }
+
+                if(!confirm("এই Notice কি Delete করবেন?")){
+                    return;
+                }
+
+                try{
+                    await db.ref("notices/" + id).remove();
+                    alert("✅ Notice Delete হয়েছে");
+                    loadNotices();
+                }catch(error){
+                    alert("❌ Delete হয়নি: " + error.message);
+                }
+            };
+
+            box.appendChild(text);
+            box.appendChild(del);
+            list.appendChild(box);
+        });
+
+    }catch(error){
+        console.log("Notice load error:", error);
+    }
+}
+
+loadNotices();
 
 
 /* ADD RESULT */
